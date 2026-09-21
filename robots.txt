@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://sandford.digital/sitemap.xml
+# netlify-github-deploy-test 2026-09-21
