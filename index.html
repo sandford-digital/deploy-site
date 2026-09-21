@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Digital Transformation & AI Strategy Consultancy | Sandford Digital</title>
+  <meta name="description" content="Sandford Digital specialises in enterprise digital transformation and AI-powered asset inspection. Sandford Site Scan creates tamper-evident survey evidence for housing associations, rail, and fleet operators." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:    #0D0D0D;
+      --ink:      #1A1A1A;
+      --grey-dk:  #444444;
+      --grey-md:  #888888;
+      --grey-lt:  #D4D4D4;
+      --grey-bg:  #F2F2F0;
+      --white:    #FAFAF8;
+      --accent:   #005FFF;
+      --accent-hv:#0047CC;
+      --font-body: 'Inter', Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Logo ─────────────────────────────────────────────────────── */
+    /*
+      Strict spec:
+      - "Sandford": Arial Bold 15.5px
+      - "DIGITAL":  Arial Normal 13px, uppercase, left-aligned under Sandford
+      - 6px gap below DIGITAL
+      - 4px solid black line, width = width of "Sandford"
+    */
+    .logo {
+      display: inline-block;
+      line-height: 1;
+    }
+    .logo__inner {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .logo__sandford {
+      font-family: Arial, sans-serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      letter-spacing: 0;
+      color: var(--black);
+      white-space: nowrap;
+    }
+    .logo__digital {
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--black);
+      white-space: nowrap;
+      margin-top: 1px;
+    }
+    /* The rule sits inside a wrapper that is sized to "Sandford" width.
+       We use a separate block just for "Sandford" to size the bar correctly. */
+    .logo__bar-wrap {
+      margin-top: 6px;
+    }
+    .logo__bar {
+      height: 4px;
+      background: var(--black);
+      /* width is driven by the parent .logo__sandford span via JS measurement,
+         but we set it relative to the Sandford text width using a trick:
+         we place the bar inside a wrapper that mirrors the Sandford span width */
+      width: 100%;
+    }
+
+    /* White logo variant for dark backgrounds */
+    .logo--white .logo__sandford,
+    .logo--white .logo__digital { color: var(--white); }
+    .logo--white .logo__bar { background: var(--white); }
+
+    /* ── Nav ──────────────────────────────────────────────────────── */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 5%;
+      background: rgba(250,250,248,0.92);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.3s, background 0.3s;
+    }
+    .nav.scrolled {
+      border-bottom-color: var(--grey-lt);
+      background: rgba(250,250,248,0.97);
+    }
+    .nav__links {
+      display: flex;
+      gap: 36px;
+      list-style: none;
+    }
+    .nav__links a {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: var(--grey-dk);
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .nav__links a:hover { color: var(--accent); }
+    .nav__cta {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      padding: 8px 20px;
+      border-radius: 3px;
+      letter-spacing: 0.03em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .nav__cta:hover {
+      background: var(--accent);
+      color: var(--white);
+    }
+    .nav__hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav__hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--ink);
+      transition: 0.3s;
+    }
+
+    /* ── Hero ─────────────────────────────────────────────────────── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 120px 5% 80px;
+      background: var(--black);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Subtle grid texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+    }
+
+    /* Accent bleed - the one bold move */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0;
+      height: 4px;
+      background: var(--accent);
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+    }
+
+    .hero__eyebrow {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 28px;
+    }
+
+    .hero__h1 {
+      font-size: clamp(2.4rem, 5vw, 4rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      margin-bottom: 28px;
+      /* The signature: an underline that draws in on load */
+    }
+
+    .hero__h1 .underline-word {
+      position: relative;
+      display: inline;
+    }
+    .hero__h1 .underline-word::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -4px;
+      height: 3px;
+      width: 0;
+      background: var(--accent);
+      transition: width 1.1s cubic-bezier(0.16,1,0.3,1) 0.4s;
+    }
+    .hero__h1 .underline-word.in-view::after {
+      width: 100%;
+    }
+
+    .hero__sub {
+      font-size: clamp(1rem, 2vw, 1.15rem);
+      font-weight: 300;
+      color: #A0A0A0;
+      max-width: 620px;
+      line-height: 1.75;
+      margin-bottom: 48px;
+    }
+
+    .hero__actions {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.15s;
+      border: 1.5px solid transparent;
+    }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .btn--primary {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+    .btn--primary:hover { background: var(--accent-hv); border-color: var(--accent-hv); }
+
+    .btn--ghost {
+      background: transparent;
+      color: var(--white);
+      border-color: rgba(255,255,255,0.35);
+    }
+    .btn--ghost:hover {
+      border-color: var(--white);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .btn--dark {
+      background: var(--accent);
+      color: var(--white);
+      border-color: var(--accent);
+    }
+    .btn--dark:hover { background: var(--accent-hv); border-color: var(--accent-hv); }
+
+    /* ── Section common ───────────────────────────────────────────── */
+    .section {
+      padding: 100px 5%;
+    }
+    .section--grey { background: var(--grey-bg); }
+    .section--dark { background: var(--ink); color: var(--white); }
+
+    .section__label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+    }
+    .section--dark .section__label { color: #6699FF; }
+
+    .section__h2 {
+      font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+    .section--dark .section__h2 { color: var(--white); }
+
+    .section__lead {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--grey-dk);
+      max-width: 660px;
+      line-height: 1.8;
+      margin-bottom: 64px;
+    }
+    .section--dark .section__lead { color: #A0A0A0; }
+
+    /* ── About / Services ─────────────────────────────────────────── */
+    .services__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 2px;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 40px 36px;
+      border-top: 3px solid transparent;
+      transition: border-color 0.25s, box-shadow 0.25s;
+      cursor: default;
+    }
+    .section--grey .service-card { background: var(--white); }
+
+    .service-card:hover {
+      border-top-color: var(--accent);
+      box-shadow: 0 8px 32px rgba(0,95,255,0.08);
+    }
+
+    .service-card__icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 24px;
+      color: var(--accent);
+    }
+
+    .service-card__h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .service-card__p {
+      font-size: 0.9rem;
+      color: var(--grey-dk);
+      line-height: 1.75;
+    }
+
+    /* ── Why Us / Pillars ─────────────────────────────────────────── */
+    .pillars__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px 48px;
+      margin-top: 4px;
+    }
+
+    .pillar {
+      border-left: 1px solid rgba(255,255,255,0.12);
+      padding-left: 28px;
+    }
+
+    .pillar__num {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      color: #6699FF;
+      margin-bottom: 16px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .pillar__h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 12px;
+      line-height: 1.3;
+    }
+
+    .pillar__p {
+      font-size: 0.875rem;
+      color: #888;
+      line-height: 1.8;
+    }
+
+    /* ── Divider ──────────────────────────────────────────────────── */
+    .divider {
+      height: 1px;
+      background: var(--grey-lt);
+      margin: 0 5%;
+    }
+
+    /* ── Footer ───────────────────────────────────────────────────── */
+    .footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 60px 5% 40px;
+    }
+
+    .footer__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 36px;
+    }
+
+    .footer__nav {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer__nav-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6699FF;
+      margin-bottom: 4px;
+    }
+
+    .footer__nav a {
+      font-size: 13.5px;
+      color: #888;
+      transition: color 0.2s;
+    }
+    .footer__nav a:hover { color: var(--white); }
+
+    .footer__contact {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer__contact-title {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #6699FF;
+      margin-bottom: 4px;
+    }
+
+    .footer__contact a {
+      font-size: 13.5px;
+      color: #888;
+      transition: color 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .footer__contact a:hover { color: var(--white); }
+
+    .footer__contact svg {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+      opacity: 0.6;
+    }
+
+    .footer__bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer__copy {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.7;
+    }
+
+    /* ── Scroll reveal ────────────────────────────────────────────── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── Responsive ───────────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav__links, .nav__cta { display: none; }
+      .nav__hamburger { display: flex; }
+
+      .nav__links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 65px; left: 0; right: 0;
+        background: var(--white);
+        padding: 24px 5%;
+        gap: 20px;
+        border-bottom: 1px solid var(--grey-lt);
+        z-index: 99;
+      }
+      .nav__links.open a { font-size: 16px; }
+      .nav__cta.open {
+        display: inline-block;
+        margin: 0 5% 20px;
+        position: fixed;
+        top: auto;
+        bottom: 32px;
+        left: 0; right: 0;
+        text-align: center;
+        z-index: 99;
+      }
+
+      .section { padding: 72px 5%; }
+
+      .footer__top { flex-direction: column; gap: 32px; }
+      .footer__bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+
+  <!-- ── Navigation ─────────────────────────────────────────────── -->
+  <nav class="nav" id="nav" role="navigation" aria-label="Main navigation">
+
+    <!-- Logo -->
+    <a href="#" class="logo" aria-label="Sandford Digital – Home">
+      <div class="logo__inner" id="logo-main">
+        <!-- bar-wrap width is set to match .logo__sandford by JS below -->
+        <span class="logo__sandford" id="logo-sandford">Sandford</span>
+        <span class="logo__digital">Digital</span>
+        <div class="logo__bar-wrap" id="logo-bar-wrap">
+          <div class="logo__bar"></div>
+        </div>
+      </div>
+    </a>
+
+    <ul class="nav__links" id="nav-links">
+      <li><a href="#about">Our Proposition</a></li>
+      <li><a href="#why">Why Us</a></li>
+      <li><a href="#site-scan">Site Scan</a></li>
+        <li><a href="/housing">Housing</a></li>
+      <li><a href="#footer">Contact</a></li>
+    </ul>
+    <a href="https://portal.sandford.digital" class="nav__cta" style="margin-right:8px;background:transparent;border:1px solid #005FFF;color:#005FFF;">Client Login</a>
+    <a href="#contact-footer" class="nav__cta" id="nav-cta">Discuss Your Project</a>
+
+    <button class="nav__hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ── Hero ───────────────────────────────────────────────────── -->
+  <section class="hero" aria-labelledby="hero-h1">
+    <div class="hero__content">
+      <p class="hero__eyebrow">Enterprise Digital Consultancy</p>
+      <h1 class="hero__h1" id="hero-h1">
+        Driving <span class="underline-word">Digital Transformation</span><br>
+        for Complex and<br>Regulated Industries
+      </h1>
+      <p class="hero__sub">
+        We turn technological ambition into operational reality. Sandford Digital provides pragmatic, secure, and scalable technology strategies - specialising in AI integration, operational resilience, and agile delivery for enterprise clients.
+      </p>
+      <div class="hero__actions">
+        <a href="#contact-footer" class="btn btn--primary">Discuss Your Project</a>
+        <a href="#about" class="btn btn--ghost">View Our Expertise</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── About / Services ───────────────────────────────────────── -->
+  <section class="section section--grey" id="about" aria-labelledby="about-h2">
+    <div class="reveal">
+      <p class="section__label">Our Proposition</p>
+      <h2 class="section__h2" id="about-h2">Enterprise-Grade Digital Strategy &amp; Execution</h2>
+      <p class="section__lead">
+        At Sandford Digital, we bridge the gap between legacy systems and next-generation technology. We understand that innovation cannot come at the cost of stability, particularly in highly regulated sectors. From financial services to national infrastructure, we partner with executive boards to deliver technology roadmaps that ensure sustainable growth, security, and competitive advantage.
+      </p>
+    </div>
+
+    <div class="services__grid">
+
+      <article class="service-card reveal">
+        <!-- AI icon -->
+        <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <circle cx="20" cy="20" r="8"/>
+          <path d="M20 4v4M20 32v4M4 20h4M32 20h4M7.76 7.76l2.83 2.83M29.41 29.41l2.83 2.83M7.76 32.24l2.83-2.83M29.41 10.59l2.83-2.83"/>
+        </svg>
+        <h3 class="service-card__h3">AI &amp; Computer Vision Solutions</h3>
+        <p class="service-card__p">Moving beyond the hype to practical implementation. We lead the strategy and deployment of advanced AI and computer vision models designed to solve complex operational challenges and modernise critical infrastructure. Sandford Site Scan - our patent-pending spatial triage SDK - is the live proof point of this capability.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <!-- Transform icon -->
+        <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="4" y="4" width="14" height="14" rx="2"/>
+          <rect x="22" y="22" width="14" height="14" rx="2"/>
+          <path d="M18 11h4a4 4 0 0 1 4 4v3M22 29h-4a4 4 0 0 1-4-4v-3"/>
+          <path d="M24 9l2 2-2 2M16 27l-2 2 2 2"/>
+        </svg>
+        <h3 class="service-card__h3">Digital Transformation at Scale</h3>
+        <p class="service-card__p">Guiding large-scale organisations through structural and technological change. We design comprehensive digital architectures that streamline operations and accelerate product time-to-market.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <!-- Shield icon -->
+        <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M20 4l14 5v9c0 8.28-6 15.59-14 17C6 33.59 6 26.28 6 18V9l14-5z"/>
+          <path d="M14 20l4 4 8-8"/>
+        </svg>
+        <h3 class="service-card__h3">Operational Resilience &amp; Risk</h3>
+        <p class="service-card__p">Building secure, compliant digital products. We embed regulatory compliance and operational resilience into the fabric of your digital architecture from day one - including privacy by architecture, GDPR-compliant AI pipelines, and offline-first design for signal-dead operational environments.</p>
+      </article>
+
+      <article class="service-card reveal">
+        <!-- Agile icon -->
+        <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <path d="M20 8a12 12 0 1 1-8.49 3.51"/>
+          <path d="M20 8v6M20 8l-4 4M20 8l4 4"/>
+        </svg>
+        <h3 class="service-card__h3">Agile Leadership &amp; Delivery</h3>
+        <p class="service-card__p">Transformation is cultural as much as it is technical. We implement agile methodologies that empower cross-functional teams and foster inclusive, forward-thinking digital leadership.</p>
+      </article>
+
+      <article class="service-card reveal" id="site-scan" style="border-top:3px solid #005FFF;">
+        <svg class="service-card__icon" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+          <rect x="4" y="8" width="32" height="24" rx="3"/>
+          <circle cx="20" cy="20" r="5"/>
+          <path d="M4 20h6M30 20h6M20 8v6M20 26v6"/>
+        </svg>
+        <h3 class="service-card__h3">Sandford Site Scan <span style="font-size:11px;font-weight:400;color:#005FFF;letter-spacing:1px;margin-left:8px;">PATENT PENDING</span></h3>
+        <p class="service-card__p">A hardware-agnostic spatial triage SDK that turns any mobile device into a structured, AI-powered asset inspection tool. Designed for housing associations navigating Awaab's Law, rail operators, and fleet managers - with a unified data layer, tamper-evident audit trail, and offline-first architecture for signal-dead environments.</p>
+        <a href="mailto:hello@sandford.digital?subject=Sandford Site Scan Demo Request" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:#005FFF;">Request a Demo &#x2192;</a>
+          <a href="/housing" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:#005FFF;">Housing Survey Platform &#x2192;</a>
+          <a href="/brochure" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:#005FFF;">Download Brochure &#x2192;</a>
+          <a href="/self-assessment" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:#005FFF;">Is Your Inspection Process Legally Defensible? &#x2192;</a>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ── Why Us ──────────────────────────────────────────────────── -->
+  <section class="section section--dark" id="why" aria-labelledby="why-h2">
+    <div class="reveal">
+      <p class="section__label">Why Sandford Digital</p>
+      <h2 class="section__h2" id="why-h2">The Sandford Digital Advantage</h2>
+      <p class="section__lead">
+        Strategy is only as good as its execution. We don't just deliver advisory decks; we bring decades of hands-on leadership in delivering highly complex technology initiatives across regulated industries and critical national infrastructure.
+      </p>
+    </div>
+
+    <div class="pillars__grid">
+
+      <div class="pillar reveal">
+        <p class="pillar__num">01 / 04</p>
+        <h3 class="pillar__h3">Deep Sector Expertise</h3>
+        <p class="pillar__p">Built on over 20 years of digital product leadership within regulated financial services. We know exactly how to innovate while navigating strict regulatory frameworks and safeguarding customer data.</p>
+      </div>
+
+      <div class="pillar reveal">
+        <p class="pillar__num">02 / 04</p>
+        <h3 class="pillar__h3">Cross-Industry Innovation</h3>
+        <p class="pillar__p">From steering agile digital banking platforms to pioneering computer vision contracts for the UK rail network, we cross-pollinate best practices across industries to deliver robust, tested solutions.</p>
+      </div>
+
+      <div class="pillar reveal">
+        <p class="pillar__num">03 / 04</p>
+        <h3 class="pillar__h3">Advocating for Diverse Leadership</h3>
+        <p class="pillar__p">We actively champion diversity within the technology sector. Through ongoing research, publication, and executive coaching, we highlight and elevate female leaders in digital transformation to build stronger, more resilient tech cultures.</p>
+      </div>
+
+      <div class="pillar reveal">
+        <p class="pillar__num">04 / 04</p>
+        <h3 class="pillar__h3">End-to-End Accountability</h3>
+        <p class="pillar__p">We are practitioners, not just theorists. From the initial business case and vendor selection to final deployment and team upskilling, we ensure every digital investment delivers measurable ROI.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── Founder ─────────────────────────────────────── -->
+  <section class="section" id="founder">
+    <div class="reveal">
+      <p class="section__label">Founder</p>
+      <h2 class="section__h2">Maz Hayes</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:260px 1fr;gap:56px;align-items:start;margin-top:48px;">
+      <div class="reveal">
+        <div style="width:100%;aspect-ratio:4/5;background:#F2F2F0;border-radius:8px;overflow:hidden;">
+          <img src="/images/maz-hayes.webp" alt="Maz Hayes, Founder of Sandford Digital" style="width:100%;height:100%;object-fit:cover;object-position:center 40%;" />
+        </div>
+        <div style="margin-top:16px;">
+          <div style="font-weight:700;font-size:15px;">Maz Hayes</div>
+          <div style="font-size:12px;color:#888888;margin-top:2px;">Founder, Sandford Digital Limited</div>
+          <a href="https://www.linkedin.com/in/mazhayes" target="_blank" rel="noopener noreferrer" style="display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:#005FFF;">LinkedIn →</a>
+        </div>
+      </div>
+      <div class="reveal">
+        <p style="font-size:17px;line-height:1.8;color:#1A1A1A;margin-bottom:24px;">Maz Hayes is the Founder of Sandford Digital Limited, a B2B digital transformation consultancy working with organisations navigating complex structural and technological change. She brings 20+ years of senior digital leadership across UK regulated industries - including Head of Digital roles at RBS and Bank of Ireland UK, Associate Partner at IBM iX, Managing Partner at WPP, and Senior Strategic Sales Director at Adobe.</p>
+        <p style="font-size:17px;line-height:1.8;color:#1A1A1A !important;margin-bottom:32px;">Alongside the consultancy, Maz is building Sandford Site Scan - a patent-pending spatial triage SDK that turns any mobile device into a structured, AI-powered asset inspection tool. The product addresses a problem hiding in plain sight across rail, fleet, and facilities: physical asset inspection runs on clipboards and WhatsApp, with no spatial context, no baseline, and no audit trail. Sandford Site Scan is the infrastructure layer that nobody built.</p>
+        <div style="display:flex;flex-direction:column;gap:10px;padding-top:24px;border-top:1px solid #D4D4D4;">
+          <div style="display:flex;gap:16px;"><span style="font-size:11px;color:#888888;width:120px;flex-shrink:0;">EDUCATION</span><span style="font-size:13px;color:#444444;">MBA - Royal Holloway, University of London</span></div>
+          <div style="display:flex;gap:16px;"><span style="font-size:11px;color:#888888;width:120px;flex-shrink:0;">SECTORS</span><span style="font-size:13px;color:#444444;">Financial Services // Enterprise Software // Rail & Fleet</span></div>
+          <div style="display:flex;gap:16px;"><span style="font-size:11px;color:#888888;width:120px;flex-shrink:0;">SPECIALISMS</span><span style="font-size:13px;color:#444444;">Digital Transformation // Digital Strategy // Product Design // AI Strategy // Adobe AEM</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ─────────────────────────────────────────────────── -->
+  <footer class="footer" id="footer" aria-label="Footer">
+    <div class="footer__top">
+
+      <!-- Logo (white) -->
+      <a href="#" class="logo logo--white" aria-label="Sandford Digital – Home">
+        <div class="logo__inner" id="logo-footer">
+          <span class="logo__sandford" id="logo-sandford-footer">Sandford</span>
+          <span class="logo__digital">Digital</span>
+          <div class="logo__bar-wrap" id="logo-bar-wrap-footer">
+            <div class="logo__bar"></div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Navigation -->
+      <nav class="footer__nav" aria-label="Footer navigation">
+        <p class="footer__nav-title">Navigation</p>
+        <a href="#">Home</a>
+        <a href="#about">Our Proposition</a>
+        <a href="#site-scan">Sandford Site Scan</a>
+        <a href="#founder">About</a>
+        <a href="#footer" id="contact-footer">Contact</a>
+        <a href="https://portal.sandford.digital" target="_blank">Client Portal</a>
+        <a href="https://insights.sandford.digital" target="_blank">Insights</a>
+        <a href="/privacy-policy">Privacy Policy</a>
+      </nav>
+
+      <!-- Contact -->
+      <address class="footer__contact" style="font-style:normal;">
+        <p class="footer__contact-title">Get in Touch</p>
+        <a href="mailto:hello@sandford.digital">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+          hello@sandford.digital
+        </a>
+        <a href="https://www.linkedin.com/in/mazhayes" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M7 10v7M7 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+          LinkedIn Profile
+        </a>
+      </address>
+
+    </div>
+
+    <div class="footer__bottom">
+      <p class="footer__copy">
+        © 2026 Sandford Digital Limited. Company Registration: 17400537. All rights reserved.<br/>
+        <span style="font-size:11px;color:#666666;">Sandford Site Scan is a patent-pending technology of Sandford Digital Limited. UK Patents Act 1977. PCT/EP reservation filed.</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- ── Scripts ─────────────────────────────────────────────────── -->
+  <script>
+    /* ─── Logo bar width: match "Sandford" span width ─── */
+    function syncLogoBars() {
+      const pairs = [
+        ['logo-sandford', 'logo-bar-wrap'],
+        ['logo-sandford-footer', 'logo-bar-wrap-footer']
+      ];
+      pairs.forEach(([textId, barId]) => {
+        const textEl = document.getElementById(textId);
+        const barEl  = document.getElementById(barId);
+        if (textEl && barEl) {
+          barEl.style.width = textEl.offsetWidth + 'px';
+        }
+      });
+    }
+    syncLogoBars();
+    window.addEventListener('resize', syncLogoBars);
+
+    /* ─── Nav scroll state ─── */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    /* ─── Mobile hamburger ─── */
+    const hamburger = document.getElementById('hamburger');
+    const navLinks  = document.getElementById('nav-links');
+    const navCta    = document.getElementById('nav-cta');
+    hamburger.addEventListener('click', () => {
+      const open = navLinks.classList.toggle('open');
+      hamburger.setAttribute('aria-expanded', open);
+      navCta.classList.toggle('open', open);
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        navLinks.classList.remove('open');
+        navCta.classList.remove('open');
+        hamburger.setAttribute('aria-expanded', false);
+      });
+    });
+
+    /* ─── Scroll reveal (IntersectionObserver) ─── */
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObs = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('in-view');
+          revealObs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => revealObs.observe(el));
+
+    /* ─── Hero headline underline ─── */
+    const heroH1 = document.getElementById('hero-h1');
+    // Trigger after short delay for entrance effect
+    setTimeout(() => {
+      heroH1.querySelectorAll('.underline-word').forEach(el => el.classList.add('in-view'));
+    }, 200);
+  </script>
+</body>
+</html>

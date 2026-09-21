@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Housing Survey Platform - Sandford Site Scan</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #0f172a; color: #f1f5f9; line-height: 1.6; }
+a { color: #14b8a6; text-decoration: none; }
+
+/* NAV */
+nav { background: #0a0f1e; padding: 0 40px; display: flex; justify-content: space-between; align-items: center; height: 64px; border-bottom: 1px solid #1e293b; position: sticky; top: 0; z-index: 100; }
+.nav-logo { display: flex; flex-direction: column; }
+.nav-logo-name { font-size: 16px; font-weight: 700; color: #f1f5f9; line-height: 1; }
+.nav-logo-sub { font-size: 7px; letter-spacing: 4px; color: #94a3b8; margin-top: 2px; }
+.nav-logo-bar { height: 2px; background: #f1f5f9; margin-top: 3px; }
+.nav-links { display: flex; gap: 32px; align-items: center; }
+.nav-links a { color: #94a3b8; font-size: 13px; font-weight: 500; }
+.nav-links a:hover { color: #f1f5f9; }
+.nav-cta { background: #14b8a6; color: #0f172a !important; padding: 8px 20px; border-radius: 6px; font-weight: 700 !important; font-size: 13px !important; }
+
+/* HERO */
+.hero { padding: 80px 40px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.hero-eyebrow { color: #14b8a6; font-size: 11px; letter-spacing: 3px; font-weight: 700; margin-bottom: 16px; }
+.hero-title { font-size: 42px; font-weight: 800; line-height: 1.1; margin-bottom: 20px; color: #ffffff; }
+.hero-title span { color: #14b8a6; }
+.hero-sub { font-size: 16px; color: #94a3b8; line-height: 1.7; margin-bottom: 32px; }
+.hero-ctas { display: flex; gap: 12px; }
+.btn-primary { background: #14b8a6; color: #0f172a; padding: 14px 28px; border-radius: 8px; font-weight: 700; font-size: 14px; letter-spacing: 0.5px; }
+.btn-secondary { border: 1.5px solid #334155; color: #cbd5e1; padding: 14px 28px; border-radius: 8px; font-weight: 600; font-size: 14px; }
+.hero-tags { display: flex; gap: 8px; margin-top: 24px; flex-wrap: wrap; }
+.tag { background: rgba(20,184,166,0.1); border: 1px solid #14b8a6; color: #14b8a6; font-size: 11px; padding: 4px 10px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; }
+.hero-visual { background: #1e293b; border-radius: 12px; border: 1px solid #334155; padding: 24px; }
+.hero-visual-title { color: #475569; font-size: 10px; letter-spacing: 2px; font-weight: 700; margin-bottom: 16px; }
+.sla-cards { display: flex; flex-direction: column; gap: 10px; }
+.sla-card { border-radius: 8px; padding: 14px; display: flex; align-items: center; gap: 14px; }
+.sla-24 { background: rgba(220,38,38,0.1); border: 1px solid #dc2626; }
+.sla-10 { background: rgba(217,119,6,0.1); border: 1px solid #d97706; }
+.sla-r { background: rgba(20,184,166,0.1); border: 1px solid #14b8a6; }
+.sla-badge { font-size: 11px; font-weight: 800; letter-spacing: 1px; min-width: 80px; }
+.sla-24 .sla-badge { color: #fca5a5; }
+.sla-10 .sla-badge { color: #fcd34d; }
+.sla-r .sla-badge { color: #5eead4; }
+.sla-desc { font-size: 12px; color: #cbd5e1; line-height: 1.4; }
+
+/* STATS */
+.stats { background: #0a0f1e; border-top: 1px solid #1e293b; border-bottom: 1px solid #1e293b; padding: 40px; }
+.stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; }
+.stat { padding: 0 40px 0 0; border-right: 1px solid #1e293b; margin-right: 40px; }
+.stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+.stat-number { font-size: 32px; font-weight: 800; color: #14b8a6; line-height: 1; }
+.stat-label { font-size: 12px; color: #64748b; margin-top: 6px; line-height: 1.4; }
+
+/* PROBLEM */
+.section { padding: 80px 40px; max-width: 1100px; margin: 0 auto; }
+.section-eyebrow { color: #14b8a6; font-size: 11px; letter-spacing: 3px; font-weight: 700; margin-bottom: 12px; }
+.section-title { font-size: 32px; font-weight: 800; color: #ffffff; line-height: 1.2; margin-bottom: 16px; }
+.section-title span { color: #14b8a6; }
+.section-sub { font-size: 15px; color: #94a3b8; max-width: 600px; line-height: 1.7; margin-bottom: 40px; }
+.problem-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.problem-card { background: #1e293b; border: 1px solid #334155; border-left: 3px solid #dc2626; border-radius: 8px; padding: 20px; }
+.problem-card-icon { font-size: 20px; margin-bottom: 10px; }
+.problem-card-title { font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
+.problem-card-text { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+
+/* HOW IT WORKS */
+.how-bg { background: #0a0f1e; }
+.flow { display: flex; align-items: flex-start; gap: 0; margin-top: 40px; }
+.flow-step { flex: 1; text-align: center; padding: 0 16px; position: relative; }
+.flow-step:not(:last-child)::after { content: '→'; position: absolute; right: -12px; top: 18px; color: #334155; font-size: 20px; font-weight: 700; }
+.flow-num { width: 40px; height: 40px; background: #14b8a6; color: #0f172a; border-radius: 50%; font-size: 16px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin: 0 auto 12px; }
+.flow-title { font-size: 13px; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+.flow-sub { font-size: 11px; color: #64748b; line-height: 1.4; }
+
+/* FEATURES */
+.features-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 40px; }
+.feature-card { background: #1e293b; border: 1px solid #334155; border-radius: 8px; padding: 24px; }
+.feature-accent { height: 3px; border-radius: 2px; margin-bottom: 16px; }
+.accent-teal { background: #14b8a6; }
+.accent-blue { background: #005FFF; }
+.accent-red { background: #dc2626; }
+.accent-amber { background: #d97706; }
+.feature-title { font-size: 14px; font-weight: 700; color: #f1f5f9; margin-bottom: 8px; }
+.feature-text { font-size: 13px; color: #94a3b8; line-height: 1.6; }
+
+/* LAW SECTION */
+.law-bg { background: #14b8a6; }
+.law-section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; }
+.law-title { font-size: 28px; font-weight: 800; color: #0f172a; margin-bottom: 12px; }
+.law-sub { font-size: 15px; color: #0d9488; max-width: 700px; line-height: 1.7; margin-bottom: 32px; }
+.law-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.law-card { background: #0f172a; border-radius: 8px; padding: 20px; }
+.law-card-title { font-size: 18px; font-weight: 800; margin-bottom: 8px; }
+.law-card-text { font-size: 12px; color: #94a3b8; line-height: 1.5; }
+
+/* FOUNDER */
+.founder-section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: auto 1fr; gap: 40px; align-items: center; }
+.founder-avatar { width: 80px; height: 80px; background: #1e293b; border: 2px solid #334155; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; font-weight: 800; color: #14b8a6; flex-shrink: 0; }
+.founder-name { font-size: 20px; font-weight: 700; color: #f1f5f9; margin-bottom: 4px; }
+.founder-title { font-size: 13px; color: #14b8a6; font-weight: 600; margin-bottom: 12px; }
+.founder-bio { font-size: 14px; color: #94a3b8; line-height: 1.7; max-width: 700px; }
+
+/* CTA */
+.cta-section { background: #0a0f1e; border-top: 1px solid #1e293b; padding: 80px 40px; text-align: center; }
+.cta-title { font-size: 36px; font-weight: 800; color: #ffffff; margin-bottom: 12px; }
+.cta-title span { color: #14b8a6; }
+.cta-sub { font-size: 16px; color: #94a3b8; margin-bottom: 32px; }
+.cta-email { font-size: 22px; font-weight: 700; color: #14b8a6; display: block; margin-bottom: 8px; }
+.cta-web { font-size: 14px; color: #475569; }
+.patent-note { margin-top: 40px; font-size: 11px; color: #334155; }
+
+/* FOOTER */
+footer { background: #0a0f1e; border-top: 1px solid #1e293b; padding: 24px 40px; display: flex; justify-content: space-between; align-items: center; }
+.footer-logo-name { font-size: 13px; font-weight: 700; color: #f1f5f9; }
+.footer-right { font-size: 11px; color: #334155; text-align: right; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-name">Sandford</div>
+    <div class="nav-logo-sub">DIGITAL</div>
+    <div class="nav-logo-bar"></div>
+  </div>
+  <div class="nav-links">
+    <a href="https://sandford.digital">Home</a>
+    <a href="#how-it-works">How it works</a>
+    <a href="#features">Features</a>
+    <a href="mailto:hello@sandford.digital" class="nav-cta">Book a demo</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div style="background:#0f172a;">
+  <div class="hero">
+    <div>
+      <div class="hero-eyebrow">HOUSING SURVEY PLATFORM</div>
+      <h1 class="hero-title">The audit trail your<br>regulator <span>expects.</span></h1>
+      <p class="hero-sub">Sandford Site Scan creates a GPS-stamped, AI-assessed, tamper-evident evidence record from the moment a defect is identified - before your surveyor leaves the building.</p>
+      <div class="hero-ctas">
+        <a href="mailto:hello@sandford.digital" class="btn-primary">Book a 30-minute demo</a>
+        <a href="/sandford-site-scan-brochure.pdf" class="btn-secondary" download>Download brochure</a>
+      </div>
+      <div class="hero-tags">
+        <span class="tag">PATENT PENDING</span>
+        <span class="tag">IN PILOT</span>
+        <span class="tag">BS 10008 ALIGNED</span>
+        <span class="tag">AWAAB'S LAW</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-visual-title">AWAAB'S LAW - AUTOMATIC SLA CLASSIFICATION</div>
+      <div class="sla-cards">
+        <div class="sla-card sla-24">
+          <div class="sla-badge">24 HOURS</div>
+          <div class="sla-desc">Emergency hazard identified - make-safe works must begin within 24 hours. Alert triggered at point of capture.</div>
+        </div>
+        <div class="sla-card sla-10">
+          <div class="sla-badge">10 DAYS</div>
+          <div class="sla-desc">Significant hazard - investigation must begin within 10 working days. Deadline set automatically.</div>
+        </div>
+        <div class="sla-card sla-r">
+          <div class="sla-badge">ROUTINE</div>
+          <div class="sla-desc">Lower-risk defect - documented, classified, and scheduled for planned maintenance.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-number">24hr</div>
+      <div class="stat-label">Awaab's Law emergency response window - automatically flagged</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">1,600+</div>
+      <div class="stat-label">Registered providers now subject to Awaab's Law</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">BS 10008</div>
+      <div class="stat-label">Aligned - tamper-evident chain of custody</div>
+    </div>
+    <div class="stat">
+      <div class="stat-number">£0</div>
+      <div class="stat-label">Additional hardware - standard mobile device</div>
+    </div>
+  </div>
+</div>
+
+<!-- PROBLEM -->
+<div style="background:#0f172a;">
+  <div class="section">
+    <div class="section-eyebrow">THE PROBLEM</div>
+    <h2 class="section-title">Most organisations can't prove<br>what their surveyors <span>actually saw.</span></h2>
+    <p class="section-sub">When a regulator or insurer asks for contemporaneous evidence of a property inspection, paper forms, spreadsheets, and WhatsApp photos don't hold up.</p>
+    <div class="problem-grid">
+      <div class="problem-card">
+        <div class="problem-card-icon">📋</div>
+        <div class="problem-card-title">Paper forms</div>
+        <div class="problem-card-text">A paper form carries no verifiable timestamp, no GPS context, and no chain of custody - making it difficult to defend as a contemporaneous record in regulatory proceedings.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-icon">📱</div>
+        <div class="problem-card-title">WhatsApp photos</div>
+        <div class="problem-card-text">Metadata is stripped in transit. No room-level mapping, no hazard classification, no HHSRS linkage. Photographs on a personal device cannot be reliably linked to a survey record.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-icon">📊</div>
+        <div class="problem-card-title">Spreadsheets</div>
+        <div class="problem-card-text">Completed after the fact and subject to error or amendment without trace. Not a contemporaneous record - does not satisfy the evidential requirements of regulatory investigation.</div>
+      </div>
+      <div class="problem-card">
+        <div class="problem-card-icon">⏰</div>
+        <div class="problem-card-title">Delayed reporting</div>
+        <div class="problem-card-text">When documentation happens back at the office, time elapses between observation and record - breaking the chain of custody at the point it matters most.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-bg" id="how-it-works">
+  <div class="section">
+    <div class="section-eyebrow">HOW IT WORKS</div>
+    <h2 class="section-title">From door to <span>evidence record</span> in one visit.</h2>
+    <div class="flow">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-title">Select property</div>
+        <div class="flow-sub">Address and UPRN lookup by postcode</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-title">Capture evidence</div>
+        <div class="flow-sub">Camera + GPS + AI assessment</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-title">HHSRS checklist</div>
+        <div class="flow-sub">21 hazard categories per room</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-title">Awaab's alert</div>
+        <div class="flow-sub">24hr / 10-day SLA assigned automatically</div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-title">PDF report</div>
+        <div class="flow-sub">Shared before leaving the property</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<div style="background:#0f172a;" id="features">
+  <div class="section">
+    <div class="section-eyebrow">PLATFORM FEATURES</div>
+    <h2 class="section-title">Built for housing associations.<br><span>Built for compliance.</span></h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-accent accent-teal"></div>
+        <div class="feature-title">GPS-stamped chain of custody</div>
+        <div class="feature-text">Every capture carries GPS coordinates, a verified timestamp, and a session ID - written to a tamper-evident cloud record aligned with BS 10008 principles.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-accent accent-blue"></div>
+        <div class="feature-title">AI hazard assessment</div>
+        <div class="feature-text">Each frame is assessed against HHSRS categories at the point of capture. The correct Awaab's Law SLA threshold is assigned automatically - no surveyor training required.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-accent accent-red"></div>
+        <div class="feature-title">Awaab's Law compliance engine</div>
+        <div class="feature-text">Emergency hazards trigger an immediate on-screen alert. Statutory deadlines are calculated and appear in the PDF report from the moment of identification.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-accent accent-amber"></div>
+        <div class="feature-title">Offline-first operation</div>
+        <div class="feature-text">Surveys complete fully offline and sync when connectivity returns. Works in basement flats and properties with no signal. No specialist hardware required.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-accent accent-teal"></div>
+        <div class="feature-title">HHSRS functional checklist</div>
+        <div class="feature-text">21 hazard categories per room - boiler safety, carbon monoxide alarm, structural checks - with surveyor notes attached to each finding and included in the report.</div>
+      </div>
+      <div class="feature-card">
+        <div class="feature-accent accent-blue"></div>
+        <div class="feature-title">Instant PDF report</div>
+        <div class="feature-text">A structured survey report generated and shared from the device before the surveyor leaves the property. No post-survey data entry. No transcription errors.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- LAW CALLOUT -->
+<div class="law-bg">
+  <div class="law-section">
+    <h2 class="law-title">Awaab's Law is not optional.</h2>
+    <p class="law-sub">From October 2025, registered social housing providers must investigate hazards within legally defined windows - and demonstrate compliance with a documented, timestamped evidence trail. Sandford Site Scan creates that trail automatically, at the moment of capture.</p>
+    <div class="law-cards">
+      <div class="law-card">
+        <div class="law-card-title" style="color:#fca5a5;">24 Hours</div>
+        <div class="law-card-text">Emergency hazards - make-safe works must begin within 24 hours of identification. Sandford Site Scan alerts the surveyor immediately and sets the deadline in the evidence record.</div>
+      </div>
+      <div class="law-card">
+        <div class="law-card-title" style="color:#fcd34d;">10 Days</div>
+        <div class="law-card-text">Significant hazards - investigation must begin within 10 working days. Deadline calculated automatically at point of capture and included in the PDF report.</div>
+      </div>
+      <div class="law-card">
+        <div class="law-card-title" style="color:#5eead4;">Routine</div>
+        <div class="law-card-text">Lower-risk defects documented, classified against HHSRS categories, and scheduled for planned maintenance - with a full audit trail from capture to resolution.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOUNDER -->
+<div style="background:#0f172a; border-top:1px solid #1e293b;">
+  <div class="founder-section">
+    <div class="founder-avatar">M</div>
+    <div>
+      <div class="founder-name">Maz Hayes - Founder, Sandford Digital Limited</div>
+      <div class="founder-title">Twenty years in regulated industries</div>
+      <div class="founder-bio">Senior digital leadership roles at IBM, WPP, Adobe, RBS and Bank of Ireland UK. Finance officer and management committee member of a registered housing association. Sandford Site Scan was built by someone who has sat on both sides of the compliance table - and knows exactly what a regulator asks for when something goes wrong.<br><br>Sandford Digital Limited is registered in England and Wales (No. 17400537). Patent pending.</div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2 class="cta-title">Ready to see it <span>in action?</span></h2>
+  <p class="cta-sub">A 30-minute live demo covers a full property survey from door to PDF report - on a standard mobile device, no setup required on your side.</p>
+  <a href="mailto:hello@sandford.digital" class="cta-email">hello@sandford.digital</a>
+  <div class="cta-web">sandford.digital</div>
+  <div class="patent-note">© 2026 Sandford Digital Limited · Registered in England & Wales No. 17400537 · Patent pending · IPC G06V 20/52, G06T 7/00, G06N 3/08</div>
+</div>
+
+<footer>
+  <div class="footer-logo-name">Sandford Digital Limited · Reg. 17400537</div>
+  <div class="footer-right">hello@sandford.digital · sandford.digital<br>© 2026 Sandford Digital Limited. All rights reserved.</div>
+</footer>
+
+</body>
+</html>

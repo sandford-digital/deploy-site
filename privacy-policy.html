@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — Sandford Digital Limited</title>
+  <meta name="description" content="Privacy Policy for Sandford Digital Limited and the Sandford Site Scan spatial triage SDK." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0f172a; --surface: #1e293b; --border: #334155;
+      --text: #f1f5f9; --muted: #94a3b8; --dim: #475569;
+      --blue: #005FFF; --green: #22c55e;
+      --font-mono: 'Courier New', Courier, monospace;
+      --font-sans: Arial, Helvetica, sans-serif;
+      --radius: 8px;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+
+    nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 0; }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand { font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 3px; color: var(--text); text-decoration: none; }
+    .nav-back { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--muted); text-decoration: none; }
+    .nav-back:hover { color: var(--text); }
+
+    .hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
+    .hero-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 4px; color: var(--blue); margin-bottom: 16px; }
+    .hero-title { font-family: var(--font-mono); font-size: clamp(24px, 4vw, 40px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
+    .hero-meta { font-family: var(--font-mono); font-size: 11px; color: var(--dim); letter-spacing: 1px; line-height: 2; }
+
+    .content { padding: 64px 0; }
+    .content section { margin-bottom: 56px; }
+    .content h2 { font-family: var(--font-mono); font-size: 14px; font-weight: 700; letter-spacing: 2px; color: var(--text); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .content h3 { font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--muted); margin: 24px 0 12px; }
+    .content p { color: var(--muted); margin-bottom: 16px; font-size: 15px; }
+    .content ul { color: var(--muted); margin: 0 0 16px 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .content ul li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; }
+    .content ul li::before { content: '→'; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+
+    .highlight-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--blue); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .highlight-box p { color: var(--muted); font-size: 14px; margin: 0; }
+
+    .warning-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--green); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .warning-box p { color: var(--muted); font-size: 14px; margin: 0; }
+
+    .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
+    .data-table th { font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--dim); text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .data-table td { color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
+    .data-table tr:last-child td { border-bottom: none; }
+
+    .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-top: 24px; }
+    .contact-box p { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
+    .contact-box a { color: var(--blue); text-decoration: none; font-family: var(--font-mono); font-size: 13px; }
+
+    footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 64px; }
+    .footer-legal { font-family: var(--font-mono); font-size: 10px; color: var(--dim); letter-spacing: 0.5px; line-height: 2; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <div class="nav-inner">
+        <a href="https://sandford.digital" class="nav-brand">SANDFORD DIGITAL</a>
+        <a href="https://sandford.digital" class="nav-back">← BACK TO SITE</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="hero">
+    <div class="container">
+      <p class="hero-label">LEGAL</p>
+      <h1 class="hero-title">Privacy Policy</h1>
+      <div class="hero-meta">
+        Sandford Digital Limited<br/>
+        Last updated: 1 July 2026<br/>
+        Version: 1.0<br/>
+        <br/>
+        This policy covers sandford.digital, portal.sandford.digital,<br/>
+        insights.sandford.digital, and the Sandford Site Scan mobile application.
+      </div>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="container">
+
+      <!-- 1. Who we are -->
+      <section>
+        <h2>01 // WHO WE ARE</h2>
+        <p>Sandford Digital Limited ("Sandford Digital", "we", "us", "our") is a company registered in England and Wales. We are the controller of personal data processed through our websites and the Sandford Site Scan spatial triage SDK.</p>
+        <p>We can be contacted at:</p>
+        <div class="contact-box">
+          <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">SANDFORD DIGITAL LIMITED</strong></p>
+          <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
+          <p>Website: <a href="https://sandford.digital">sandford.digital</a></p>
+        </div>
+      </section>
+
+      <!-- 2. The short version -->
+      <section>
+        <h2>02 // THE SHORT VERSION</h2>
+        <div class="warning-box">
+          <p>Sandford Site Scan is designed to inspect <strong>assets</strong>, not people. Our system is built to process the condition of physical infrastructure — train carriages, fleet vehicles, facilities — not to identify, track, or profile individuals. Privacy protection is enforced in our capture pipeline before any image reaches an AI model. This is not a policy position. It is an architectural constraint.</p>
+        </div>
+        <ul>
+          <li>People detected in captured frames are automatically filtered before AI processing</li>
+          <li>We do not store raw video or images beyond the active session window unless explicitly configured by the operator</li>
+          <li>We do not sell personal data to third parties under any circumstances</li>
+          <li>Aggregate trend intelligence is anonymised at regional level — operator identity is never included</li>
+          <li>You have the right to access, correct, and erase any personal data we hold about you</li>
+        </ul>
+      </section>
+
+      <!-- 3. What data we collect -->
+      <section>
+        <h2>03 // WHAT DATA WE COLLECT AND WHY</h2>
+
+        <h3>A. SANDFORD SITE SCAN — MOBILE APPLICATION</h3>
+        <p>The Sandford Site Scan app is an enterprise tool deployed by operators to their staff. When the app is in use, the following data is processed:</p>
+
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>DATA TYPE</th>
+              <th>PURPOSE</th>
+              <th>LEGAL BASIS</th>
+              <th>RETENTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Camera frames (Base64)</td>
+              <td>Asset condition assessment via AI vision</td>
+              <td>Legitimate interests of the operator</td>
+              <td>Transient — processed and discarded within session unless operator configures retention</td>
+            </tr>
+            <tr>
+              <td>Spatial anchor metadata</td>
+              <td>Mapping frame to position on asset</td>
+              <td>Legitimate interests</td>
+              <td>Retained as part of session audit trail</td>
+            </tr>
+            <tr>
+              <td>Session ID and timestamp</td>
+              <td>Audit trail and dispute resolution</td>
+              <td>Legitimate interests / legal obligation</td>
+              <td>90 days by default. Configurable per operator.</td>
+            </tr>
+            <tr>
+              <td>AI assessment output</td>
+              <td>Damage finding and severity scoring</td>
+              <td>Legitimate interests</td>
+              <td>90 days by default. Configurable per operator.</td>
+            </tr>
+            <tr>
+              <td>License plate (Fleet regime)</td>
+              <td>Vehicle identification at handover</td>
+              <td>Legitimate interests of the operator</td>
+              <td>As per session audit trail</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="highlight-box">
+          <p><strong style="color:var(--text)">Person filtering:</strong> Prior to any frame being submitted to the AI assessment pipeline, a pre-filter is applied to detect and exclude human subjects. Faces and identifiable personal characteristics are not processed by our AI models. No biometric data is collected, stored, or inferred.</p>
+        </div>
+
+        <h3>B. CLIENT PORTAL — portal.sandford.digital</h3>
+        <p>Operator and manager accounts on the client portal require the following personal data:</p>
+        <ul>
+          <li>Name and email address — for account authentication and communications</li>
+          <li>Organisation name and role — for access control and audit purposes</li>
+          <li>Login timestamps and activity logs — for security and compliance</li>
+        </ul>
+
+        <h3>C. INSIGHTS DASHBOARD — insights.sandford.digital</h3>
+        <p>The Insights platform presents anonymised regional aggregate data only. No personal data about individuals or identifiable operators is presented to third-party subscribers. Account data (name, email, organisation) is collected for authentication purposes only.</p>
+
+        <h3>D. WEBSITE — sandford.digital</h3>
+        <ul>
+          <li>Contact form submissions — name, email, message — retained for 12 months</li>
+          <li>Demo request submissions — retained until the request is fulfilled or declined</li>
+          <li>Analytics data — anonymised page view data only. We do not use third-party tracking cookies.</li>
+        </ul>
+      </section>
+
+      <!-- 4. How we use AI -->
+      <section>
+        <h2>04 // HOW WE USE AI VISION</h2>
+        <p>Sandford Site Scan uses Claude, an AI model developed by Anthropic, to assess asset condition from camera frames. Frames are submitted to Anthropic's API over an encrypted connection. Anthropic's data processing terms apply to this transfer.</p>
+        <p>We instruct the AI model to:</p>
+        <ul>
+          <li>Assess the physical condition of the asset surface visible in the frame</li>
+          <li>Identify damage, wear, or anomalies against a known baseline condition</li>
+          <li>Return a structured JSON assessment — severity, findings, confidence, recommendation</li>
+          <li>Ignore and not report on any human subjects, personal belongings, or non-asset objects</li>
+        </ul>
+        <div class="highlight-box">
+          <p>The AI model does not make autonomous decisions that have legal or significant effects on individuals. All assessments are reviewed by a human operator before any action is taken. Our use of AI is assistive, not determinative.</p>
+        </div>
+      </section>
+
+      <!-- 5. Offline processing -->
+      <section>
+        <h2>05 // OFFLINE PROCESSING</h2>
+        <p>Sandford Site Scan is designed for deployment in signal-dead environments including rail depots and underground facilities. When network connectivity is unavailable:</p>
+        <ul>
+          <li>Captured frames and metadata are stored locally on the device in an encrypted queue</li>
+          <li>No data is transmitted until a confirmed network connection is established</li>
+          <li>The local queue is automatically cleared once data has been confirmed as received by our backend</li>
+          <li>Locally stored data is protected by the device's native encryption and access controls</li>
+        </ul>
+      </section>
+
+      <!-- 6. Data sharing -->
+      <section>
+        <h2>06 // WHO WE SHARE DATA WITH</h2>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>RECIPIENT</th>
+              <th>PURPOSE</th>
+              <th>LOCATION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Anthropic, Inc.</td>
+              <td>AI vision processing via Claude API</td>
+              <td>USA — Standard Contractual Clauses apply</td>
+            </tr>
+            <tr>
+              <td>Operator clients</td>
+              <td>Session results and audit trail for their own assets</td>
+              <td>UK / EU</td>
+            </tr>
+            <tr>
+              <td>Cloud infrastructure provider</td>
+              <td>Hosting and data storage</td>
+              <td>UK / EU only</td>
+            </tr>
+            <tr>
+              <td>Third-party intelligence subscribers</td>
+              <td>Anonymised regional aggregate data only — no personal data</td>
+              <td>UK / EU</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>We do not sell, rent, or trade personal data. We do not share personal data with advertisers or data brokers.</p>
+      </section>
+
+      <!-- 7. Data retention -->
+      <section>
+        <h2>07 // HOW LONG WE KEEP DATA</h2>
+        <ul>
+          <li>Session audit trails — 90 days by default, configurable per operator contract</li>
+          <li>AI assessment outputs — 90 days by default, configurable per operator contract</li>
+          <li>Raw frame data — transient, not retained beyond active processing unless explicitly configured</li>
+          <li>Portal account data — duration of contract plus 12 months</li>
+          <li>Contact and demo request data — 12 months</li>
+          <li>Anonymised aggregate data — indefinitely (no personal data present)</li>
+        </ul>
+      </section>
+
+      <!-- 8. Your rights -->
+      <section>
+        <h2>08 // YOUR RIGHTS</h2>
+        <p>Under UK GDPR and the Data Protection Act 2018, you have the following rights:</p>
+        <ul>
+          <li><strong style="color:var(--text)">Access</strong> — request a copy of personal data we hold about you</li>
+          <li><strong style="color:var(--text)">Rectification</strong> — request correction of inaccurate personal data</li>
+          <li><strong style="color:var(--text)">Erasure</strong> — request deletion of your personal data where there is no legitimate reason for continued processing</li>
+          <li><strong style="color:var(--text)">Restriction</strong> — request that we restrict processing of your personal data in certain circumstances</li>
+          <li><strong style="color:var(--text)">Portability</strong> — request transfer of your personal data to another controller in a structured, machine-readable format</li>
+          <li><strong style="color:var(--text)">Objection</strong> — object to processing based on legitimate interests</li>
+          <li><strong style="color:var(--text)">Automated decisions</strong> — you have the right not to be subject to solely automated decisions that have legal or significant effects on you</li>
+        </ul>
+        <p>To exercise any of these rights, contact us at <a href="mailto:privacy@sandford.digital" style="color:var(--blue);font-family:var(--font-mono)">privacy@sandford.digital</a>. We will respond within 30 days.</p>
+        <p>You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" style="color:var(--blue);font-family:var(--font-mono)">ico.org.uk</a>.</p>
+      </section>
+
+      <!-- 9. Security -->
+      <section>
+        <h2>09 // SECURITY</h2>
+        <ul>
+          <li>All data in transit is encrypted using TLS 1.2 or higher</li>
+          <li>Local device storage is encrypted using native device encryption</li>
+          <li>API keys and credentials are never stored in client-side code or transmitted in plain text</li>
+          <li>Access to client data is restricted to authorised personnel only</li>
+          <li>We conduct regular security reviews of our infrastructure and codebase</li>
+        </ul>
+      </section>
+
+      <!-- 10. Cookies -->
+      <section>
+        <h2>10 // COOKIES</h2>
+        <p>sandford.digital uses no third-party tracking cookies. We use a single session cookie for authentication on the client portal. This cookie is strictly necessary for the portal to function and does not require consent under PECR.</p>
+        <p>The Sandford Site Scan mobile application does not use cookies.</p>
+      </section>
+
+      <!-- 11. Changes -->
+      <section>
+        <h2>11 // CHANGES TO THIS POLICY</h2>
+        <p>We will update this policy as our products and legal obligations evolve. Material changes will be communicated to active clients by email with 30 days notice before taking effect. The version number and last updated date at the top of this page will always reflect the current version.</p>
+      </section>
+
+      <!-- 12. Contact -->
+      <section>
+        <h2>12 // CONTACT US</h2>
+        <div class="contact-box">
+          <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">DATA PROTECTION ENQUIRIES</strong></p>
+          <p style="margin-top:16px">Sandford Digital Limited</p>
+          <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
+          <p style="margin-top:16px;font-size:12px;color:var(--dim)">For general enquiries: <a href="mailto:hello@sandford.digital" style="color:var(--blue);font-family:var(--font-mono);font-size:12px">hello@sandford.digital</a></p>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      <div class="footer-legal">
+        © 2026 Sandford Digital Limited. All rights reserved.<br/>
+        Sandford Site Scan is a patent-pending technology of Sandford Digital Limited.<br/>
+        UK Patents Act 1977. PCT/EP reservation filed.<br/>
+        <br/>
+        <a href="https://sandford.digital" style="color:var(--blue);text-decoration:none">sandford.digital</a>
+        &nbsp;//&nbsp;
+        <a href="https://portal.sandford.digital" style="color:var(--blue);text-decoration:none">portal.sandford.digital</a>
+        &nbsp;//&nbsp;
+        <a href="https://insights.sandford.digital" style="color:var(--blue);text-decoration:none">insights.sandford.digital</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

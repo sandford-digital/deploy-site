@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Is your inspection process legally defensible? | Sandford Digital</title>
+<meta name="description" content="Take Sandford Digital's 2-minute self-assessment to find out whether your property or asset inspection process would hold up under legal or regulatory challenge.">
+<style>
+  :root {
+    --navy: #0b1f3a;
+    --navy-dark: #071626;
+    --accent: #2e6fd6;
+    --accent-light: #eaf1fc;
+    --grey: #5b6472;
+    --border: #e2e6ea;
+    --danger: #b3261e;
+    --warn: #b06b00;
+    --ok: #1e7a34;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--navy-dark);
+    background: #f7f8fa;
+    line-height: 1.5;
+  }
+  header {
+    background: var(--navy);
+    color: #fff;
+    padding: 28px 20px;
+    text-align: center;
+  }
+  header a { color: #fff; text-decoration: none; font-weight: 600; font-size: 1.1rem; }
+  .wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 40px 20px 80px;
+  }
+  .intro {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+    margin-bottom: 24px;
+  }
+  h1 { font-size: 1.7rem; margin: 0 0 12px; color: var(--navy); }
+  .intro p { color: var(--grey); margin: 0 0 8px; }
+  .meta-line { font-size: 0.85rem; color: var(--grey); margin-top: 16px; }
+  #quiz-card, #result-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 32px;
+  }
+  #result-card { display: none; }
+  .progress-track {
+    height: 6px;
+    background: var(--border);
+    border-radius: 3px;
+    margin-bottom: 28px;
+    overflow: hidden;
+  }
+  .progress-fill {
+    height: 100%;
+    background: var(--accent);
+    width: 0%;
+    transition: width 0.3s ease;
+  }
+  .q-label { font-size: 0.85rem; color: var(--accent); font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 8px; }
+  .q-text { font-size: 1.15rem; font-weight: 600; margin-bottom: 20px; color: var(--navy); }
+  .option {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #fff;
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    margin-bottom: 10px;
+    font-size: 0.98rem;
+    cursor: pointer;
+    color: var(--navy-dark);
+    transition: border-color 0.15s, background 0.15s;
+  }
+  .option:hover { border-color: var(--accent); background: var(--accent-light); }
+  .nav-row { display: flex; justify-content: space-between; margin-top: 24px; }
+  .btn-back {
+    background: none;
+    border: none;
+    color: var(--grey);
+    font-size: 0.9rem;
+    cursor: pointer;
+    padding: 8px 0;
+  }
+  .btn-back:disabled { visibility: hidden; }
+  .risk-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+  .risk-critical { background: #fbe9e7; color: var(--danger); }
+  .risk-high { background: #fdf1e0; color: var(--warn); }
+  .risk-medium { background: #fff8e1; color: #8a6d00; }
+  .risk-low { background: #e8f5e9; color: var(--ok); }
+  #result-card h2 { font-size: 1.5rem; color: var(--navy); margin: 0 0 12px; }
+  #result-summary { color: var(--navy-dark); margin-bottom: 20px; }
+  #result-detail {
+    background: #f7f8fa;
+    border-left: 3px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+  }
+  #result-detail ul { margin: 8px 0 0; padding-left: 20px; }
+  #result-detail li { margin-bottom: 6px; }
+  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+  .btn-primary {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .btn-secondary {
+    background: #fff;
+    color: var(--navy);
+    border: 1.5px solid var(--border);
+    padding: 14px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .restart-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--grey);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: var(--grey);
+    font-size: 0.85rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="/">Sandford Digital</a>
+</header>
+
+<div class="wrap">
+
+  <div class="intro" id="intro-card">
+    <h1>Is your inspection process legally defensible?</h1>
+    <p>Seven questions. About two minutes. At the end you'll get a risk rating for your current inspection process, and what it would take to close the gap.</p>
+    <p class="meta-line">Built for teams responsible for property, fleet, or facilities inspection under regulatory or statutory duty (including Awaab's Law).</p>
+  </div>
+
+  <div id="quiz-card">
+    <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+    <div class="q-label" id="q-label">Question 1 of 7</div>
+    <div class="q-text" id="q-text"></div>
+    <div id="options-container"></div>
+    <div class="nav-row">
+      <button class="btn-back" id="back-btn" onclick="goBack()">← Back</button>
+    </div>
+  </div>
+
+  <div id="result-card">
+    <span class="risk-badge" id="risk-badge"></span>
+    <h2 id="result-title"></h2>
+    <p id="result-summary"></p>
+    <div id="result-detail"></div>
+    <div class="cta-row">
+      <a class="btn-primary" href="mailto:hello@sandford.digital?subject=Inspection%20Process%20Assessment%20-%20Book%20a%20Call" id="cta-primary">Book a 20-Minute Call</a>
+      <a class='btn-secondary' href='/brochure'>Read the Brochure</a>
+    </div>
+    <div class="restart-link" onclick="restart()">Retake the assessment</div>
+  </div>
+
+</div>
+
+<footer>
+  &copy; 2026 Sandford Digital Limited. &middot; <a href="/">sandford.digital</a>
+</footer>
+
+<script>
+const questions = [
+  {
+    q: "How do you currently record property or asset inspections?",
+    options: [
+      { text: "Structured digital app with consistent fields and timestamps", score: 0 },
+      { text: "Photos and notes on WhatsApp or personal phones", score: 3 },
+      { text: "Paper forms, filed manually", score: 3 },
+      { text: "It varies by inspector - no single method", score: 3 }
+    ]
+  },
+  {
+    q: "Can you prove exactly when and where a given inspection took place?",
+    options: [
+      { text: "Yes - GPS and timestamp are captured automatically", score: 0 },
+      { text: "Roughly - we log a date, not a precise time or location", score: 2 },
+      { text: "No - we'd be relying on the inspector's recollection", score: 3 }
+    ]
+  },
+  {
+    q: "If a resident or client disputes what was found, can you produce a full audit trail?",
+    options: [
+      { text: "Yes - a complete, tamper-evident record for that inspection", score: 0 },
+      { text: "Partially - we'd have some evidence, but gaps are likely", score: 2 },
+      { text: "No - we don't have a reliable way to reconstruct it", score: 3 }
+    ]
+  },
+  {
+    q: "Can you compare a hazard (e.g. damp, corrosion, wear) across multiple inspections of the same asset over time?",
+    options: [
+      { text: "Yes - we hold a structured baseline and can track change directly", score: 0 },
+      { text: "Informally - someone would need to dig through old reports", score: 2 },
+      { text: "No - each inspection stands alone, with no comparison", score: 3 }
+    ]
+  },
+  {
+    q: "If a regulator or legal team asked for your inspection records tomorrow, how long would it take to produce them?",
+    options: [
+      { text: "Minutes - records are centralised and instantly searchable", score: 0 },
+      { text: "Days - we'd need to collate from multiple sources", score: 2 },
+      { text: "We're not confident we could produce a complete set", score: 3 }
+    ]
+  },
+  {
+    q: "Do your inspections ever happen in areas with poor or no mobile signal (basements, rural sites, tunnels, plant rooms)?",
+    options: [
+      { text: "Yes, and our tools capture data offline without loss", score: 0 },
+      { text: "Yes, and we lose data quality or have to redo work", score: 3 },
+      { text: "Not applicable to our operations", score: 0 }
+    ]
+  },
+  {
+    q: "If a defect were missed during an inspection, how would you find out?",
+    options: [
+      { text: "The system flags inconsistencies or missing checks automatically", score: 0 },
+      { text: "We'd rely on the inspector remembering or a resident complaining", score: 3 },
+      { text: "We honestly wouldn't know until it became a bigger problem", score: 3 }
+    ]
+  }
+];
+
+let current = 0;
+let answers = [];
+
+function renderQuestion() {
+  const q = questions[current];
+  document.getElementById('q-label').textContent = `Question ${current + 1} of ${questions.length}`;
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('progress-fill').style.width = `${(current / questions.length) * 100}%`;
+  const container = document.getElementById('options-container');
+  container.innerHTML = '';
+  q.options.forEach((opt) => {
+    const btn = document.createElement('button');
+    btn.className = 'option';
+    btn.textContent = opt.text;
+    btn.onclick = () => selectOption(opt.score);
+    container.appendChild(btn);
+  });
+  document.getElementById('back-btn').disabled = current === 0;
+}
+
+function selectOption(score) {
+  answers[current] = score;
+  current++;
+  if (current < questions.length) {
+    renderQuestion();
+  } else {
+    showResult();
+  }
+}
+
+function goBack() {
+  if (current > 0) {
+    current--;
+    renderQuestion();
+  }
+}
+
+function showResult() {
+  document.getElementById('quiz-card').style.display = 'none';
+  document.getElementById('intro-card').style.display = 'none';
+  const total = answers.reduce((a, b) => a + b, 0);
+  const card = document.getElementById('result-card');
+  card.style.display = 'block';
+
+  const badge = document.getElementById('risk-badge');
+  const title = document.getElementById('result-title');
+  const summary = document.getElementById('result-summary');
+  const detail = document.getElementById('result-detail');
+
+  let risk, badgeClass, headline, summaryText, points;
+
+  if (total >= 15) {
+    risk = "Critical Exposure"; badgeClass = "risk-critical";
+    headline = "Your current process would struggle to defend a legal challenge.";
+    summaryText = "Based on your answers, your inspection process has significant gaps in evidence, traceability, and auditability. Under statutory duties such as Awaab's Law, this level of exposure could leave your organisation unable to demonstrate due diligence if a case were escalated.";
+    points = [
+      "No reliable way to prove when or where inspections happened",
+      "Limited or no audit trail if findings are disputed",
+      "No structured way to track recurring hazards over time"
+    ];
+  } else if (total >= 9) {
+    risk = "High Exposure"; badgeClass = "risk-high";
+    headline = "There are real gaps that would slow down or weaken your defence.";
+    summaryText = "Some elements of your process are solid, but there are enough gaps - in timestamping, audit trail, or hazard tracking - that a determined challenge could expose real weaknesses.";
+    points = [
+      "Evidence exists but is scattered or slow to retrieve",
+      "Hazard history is not consistently comparable across inspections",
+      "Offline or low-signal environments may be creating data loss"
+    ];
+  } else if (total >= 4) {
+    risk = "Moderate Exposure"; badgeClass = "risk-medium";
+    headline = "You're in reasonable shape, with a few specific gaps worth closing.";
+    summaryText = "Your process holds up in most scenarios, but one or two weak points could still be a problem under sustained scrutiny.";
+    points = [
+      "Review whichever question scored highest for you",
+      "Tighten the audit trail for disputed findings",
+      "Confirm your process holds up in low-signal environments"
+    ];
+  } else {
+    risk = "Low Exposure"; badgeClass = "risk-low";
+    headline = "Your process looks well placed to withstand a legal or regulatory challenge.";
+    summaryText = "You've got structured, timestamped, auditable inspection data with a working process for hazard tracking. That's a strong position - worth stress-testing periodically as regulation evolves.";
+    points = [
+      "Keep audit trail and retention policies documented",
+      "Periodically test your ability to produce records under time pressure",
+      "Revisit as new regulation (e.g. Awaab's Law extensions) comes into force"
+    ];
+  }
+
+  badge.textContent = risk;
+  badge.className = `risk-badge ${badgeClass}`;
+  title.textContent = headline;
+  summary.textContent = summaryText;
+  detail.innerHTML = `<strong>What's driving this result:</strong><ul>${points.map(p => `<li>${p}</li>`).join('')}</ul>`;
+}
+
+function restart() {
+  current = 0;
+  answers = [];
+  document.getElementById('result-card').style.display = 'none';
+  document.getElementById('intro-card').style.display = 'block';
+  document.getElementById('quiz-card').style.display = 'block';
+  renderQuestion();
+}
+
+renderQuestion();
+</script>
+
+</body>
+</html>
