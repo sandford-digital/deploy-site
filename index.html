@@ -540,6 +540,94 @@
       *, *::before, *::after { transition: none !important; animation: none !important; }
       .reveal { opacity: 1; transform: none; }
     }
+
+    /* ── Demo request modal ──────────────────────────────────────── */
+    .demo-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(13,13,13,0.55);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      z-index: 200;
+    }
+    .demo-modal-overlay[hidden] { display: none; }
+    .demo-modal {
+      background: var(--white);
+      border-radius: 6px;
+      padding: 40px;
+      width: 100%;
+      max-width: 440px;
+      max-height: 90vh;
+      overflow-y: auto;
+      position: relative;
+    }
+    .demo-modal__close {
+      position: absolute;
+      top: 16px; right: 16px;
+      background: transparent;
+      border: none;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--grey-md);
+      cursor: pointer;
+      padding: 4px;
+    }
+    .demo-modal__close:hover { color: var(--ink); }
+    .demo-modal h3 {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--ink);
+    }
+    .demo-modal p.demo-modal__sub {
+      font-size: 13.5px;
+      color: var(--grey-dk);
+      margin-bottom: 24px;
+    }
+    .demo-modal label {
+      display: block;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--grey-dk);
+      margin-bottom: 6px;
+    }
+    .demo-modal .field { margin-bottom: 16px; }
+    .demo-modal input,
+    .demo-modal textarea {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: 14px;
+      padding: 10px 12px;
+      border: 1.5px solid var(--grey-lt);
+      border-radius: 3px;
+      background: var(--grey-bg);
+      color: var(--ink);
+    }
+    .demo-modal input:focus,
+    .demo-modal textarea:focus {
+      outline: none;
+      border-color: var(--accent);
+      background: var(--white);
+    }
+    .demo-modal textarea { resize: vertical; min-height: 80px; }
+    .demo-modal__submit {
+      width: 100%;
+      border: 1.5px solid var(--accent);
+      margin-top: 4px;
+    }
+    .demo-modal__submit:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none;
+    }
+    .demo-modal__status {
+      font-size: 13px;
+      margin-top: 14px;
+    }
+    .demo-modal__status--error { color: #C0392B; }
+    .demo-modal__status--success { color: #1B7A3D; }
   </style>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 </head>
@@ -655,10 +743,10 @@
         </svg>
         <h3 class="service-card__h3">Sandford Site Scan <span style="font-size:11px;font-weight:400;color:#005FFF;letter-spacing:1px;margin-left:8px;">PATENT PENDING</span></h3>
         <p class="service-card__p">A hardware-agnostic spatial triage SDK that turns any mobile device into a structured, AI-powered asset inspection tool. Designed for housing associations navigating Awaab's Law, rail operators, and fleet managers - with a unified data layer, tamper-evident audit trail, and offline-first architecture for signal-dead environments.</p>
-        <a href="mailto:hello@sandford.digital?subject=Sandford Site Scan Demo Request" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:#005FFF;">Request a Demo &#x2192;</a>
+        <button type="button" onclick="openDemoModal()" style="display:inline-block;margin-top:16px;font-size:13px;font-weight:600;color:#005FFF;background:none;border:none;padding:0;cursor:pointer;font-family:inherit;">Request a Demo &#x2192;</button>
           <a href="/housing" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:#005FFF;">Housing Survey Platform &#x2192;</a>
           <a href="/brochure" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:#005FFF;">Download Brochure &#x2192;</a>
-          <a href="/self-assessment" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:#005FFF;">Is Your Inspection Process Legally Defensible? &#x2192;</a>
+          <a href="/self-assessment" style="display:inline-block;margin-top:8px;font-size:13px;font-weight:600;color:#005FFF;">Is your inspection process legally defensible? &#x2192;</a>
       </article>
 
     </div>
@@ -783,6 +871,35 @@
     </div>
   </footer>
 
+  <!-- ── Demo request modal ──────────────────────────────────────── -->
+  <div class="demo-modal-overlay" id="demo-modal-overlay" hidden>
+    <div class="demo-modal" role="dialog" aria-modal="true" aria-labelledby="demo-modal-title">
+      <button type="button" class="demo-modal__close" aria-label="Close" onclick="closeDemoModal()">&times;</button>
+      <h3 id="demo-modal-title">Request a Demo</h3>
+      <p class="demo-modal__sub">Tell us a bit about your organisation and we'll be in touch to set up a walkthrough of Sandford Site Scan.</p>
+      <form id="demo-form" novalidate>
+        <div class="field">
+          <label for="demo-name">Name</label>
+          <input type="text" id="demo-name" name="name" required maxlength="200" autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="demo-email">Work email</label>
+          <input type="email" id="demo-email" name="email" required autocomplete="email" />
+        </div>
+        <div class="field">
+          <label for="demo-organisation">Organisation (optional)</label>
+          <input type="text" id="demo-organisation" name="organisation" maxlength="200" autocomplete="organization" />
+        </div>
+        <div class="field">
+          <label for="demo-message">What would you like to see? (optional)</label>
+          <textarea id="demo-message" name="message" maxlength="2000"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary demo-modal__submit" id="demo-submit">Send Request</button>
+        <p class="demo-modal__status" id="demo-status" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </div>
+
   <!-- ── Scripts ─────────────────────────────────────────────────── -->
   <script>
     /* ─── Logo bar width: match "Sandford" span width ─── */
@@ -843,6 +960,74 @@
     setTimeout(() => {
       heroH1.querySelectorAll('.underline-word').forEach(el => el.classList.add('in-view'));
     }, 200);
+
+    /* ─── Request a Demo modal ─── */
+    const DEMO_ENDPOINT = 'https://europe-west2-sandford-handover.cloudfunctions.net/submitDemoRequest';
+    const demoOverlay = document.getElementById('demo-modal-overlay');
+    const demoForm = document.getElementById('demo-form');
+    const demoSubmit = document.getElementById('demo-submit');
+    const demoStatus = document.getElementById('demo-status');
+
+    function openDemoModal() {
+      demoOverlay.hidden = false;
+      demoSubmit.disabled = false;
+      demoSubmit.textContent = 'Send Request';
+      demoStatus.textContent = '';
+      demoStatus.className = 'demo-modal__status';
+      document.getElementById('demo-name').focus();
+    }
+    function closeDemoModal() {
+      demoOverlay.hidden = true;
+    }
+    demoOverlay.addEventListener('click', (e) => {
+      if (e.target === demoOverlay) closeDemoModal();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && !demoOverlay.hidden) closeDemoModal();
+    });
+
+    demoForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      demoStatus.textContent = '';
+      demoStatus.className = 'demo-modal__status';
+      demoSubmit.disabled = true;
+      demoSubmit.textContent = 'Sending…';
+
+      const payload = {
+        name: document.getElementById('demo-name').value.trim(),
+        email: document.getElementById('demo-email').value.trim(),
+        organisation: document.getElementById('demo-organisation').value.trim() || undefined,
+        message: document.getElementById('demo-message').value.trim() || undefined,
+      };
+
+      try {
+        const res = await fetch(DEMO_ENDPOINT, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload),
+        });
+        const data = await res.json().catch(() => ({}));
+
+        if (!res.ok) {
+          demoStatus.textContent = data.error || 'Something went wrong — please try again or email hello@sandford.digital.';
+          demoStatus.classList.add('demo-modal__status--error');
+          demoSubmit.disabled = false;
+          demoSubmit.textContent = 'Send Request';
+          return;
+        }
+
+        demoStatus.textContent = "Thanks — we've got your request and will be in touch shortly.";
+        demoStatus.classList.add('demo-modal__status--success');
+        demoForm.reset();
+        demoSubmit.textContent = 'Send Request';
+        setTimeout(closeDemoModal, 2500);
+      } catch (err) {
+        demoStatus.textContent = 'Could not reach the server — please try again or email hello@sandford.digital.';
+        demoStatus.classList.add('demo-modal__status--error');
+        demoSubmit.disabled = false;
+        demoSubmit.textContent = 'Send Request';
+      }
+    });
   </script>
 </body>
 </html>
