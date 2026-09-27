@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Sandford Digital | Inspection Evidence Pilot</title>
+  <meta name="description" content="Talk to Sandford Digital about a Site Scan pilot, an Evidence SDK integration, or a specific inspection evidence problem." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/site.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="wrap nav__row">
+      <a href="/" class="logo" aria-label="Sandford Digital – Home">
+        <span class="logo__inner">
+          <span class="logo__sandford">Sandford</span>
+          <span class="logo__digital">Digital</span>
+          <span class="logo__bar-wrap" aria-hidden="true"><span class="logo__bar" style="display:block"></span></span>
+        </span>
+      </a>
+      <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel">Menu</button>
+      <div class="nav__panel" id="nav-panel">
+        <nav aria-label="Primary">
+          <ul class="nav__links">
+          <li><a href="/product">Product</a></li>
+          <li><a href="/housing">Housing</a></li>
+          <li><a href="/contractors">Contractors</a></li>
+          <li><a href="/inspection-inventory">Inspection &amp; Inventory</a></li>
+          <li><a href="/evidence-sdk">Evidence SDK</a></li>
+          <li><a href="/verify">Verify Evidence</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact" aria-current="page">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__actions">
+          <a class="nav__login" href="https://portal.sandford.digital">Client Login</a>
+          <a class="nav__cta" href="/contact#contact-form">Discuss a pilot</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <h1>Start with the evidence problem.</h1>
+        <p>If your organisation captures photographs or inspection records that may later be relied upon, challenged or shared with another party, we would like to understand the workflow.</p>
+
+      </div>
+    </section>
+    <section class="section section--grey">
+      <div class="wrap prose">
+        <h2>Talk to us about</h2>
+        <ul class="ticks">
+          <li>A Property / housing Site Scan pilot</li>
+          <li>Property-service or contractor evidence assurance</li>
+          <li>Inventory and inspection report verification</li>
+          <li>An Evidence SDK integration</li>
+          <li>A specific evidence-integrity or provenance problem</li>
+        </ul>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap prose">
+        <h2>What the first conversation covers</h2>
+        <p>We will ask how evidence is captured today, who relies on it, what happens when it is questioned, what your existing audit trail proves and whether independent verification would add anything useful.</p>
+        <p>If it does not, that is useful to know too.</p>
+        <p>There is no requirement to begin with a large implementation.</p>
+      </div>
+    </section>
+    <section class="section section--dark">
+      <div class="wrap prose">
+        <h2>Pilot approach</h2>
+        <p>Where there is a genuine fit, we prefer to start narrowly: one workflow, a small group of users, a defined volume of inspections and clear learning objectives.</p>
+      </div>
+    </section>
+    <section class="section section--grey" id="contact-form-section">
+      <div class="wrap">
+        <!-- Same endpoint/payload as the previous homepage "Request a Demo" modal
+             (submitDemoRequest: name, email, organisation, message). -->
+        <form class="form" id="contact-form" novalidate aria-label="Contact Sandford Digital">
+          <div class="field">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" required maxlength="200" autocomplete="name" />
+          </div>
+          <div class="field">
+            <label for="contact-email">Work email</label>
+            <input type="email" id="contact-email" name="email" required autocomplete="email" />
+          </div>
+          <div class="field">
+            <label for="contact-organisation">Organisation (optional)</label>
+            <input type="text" id="contact-organisation" name="organisation" maxlength="200" autocomplete="organization" />
+          </div>
+          <div class="field">
+            <label for="contact-message">Message (optional)</label>
+            <textarea id="contact-message" name="message" maxlength="2000"></textarea>
+          </div>
+          <div><button type="submit" class="btn btn--primary" id="contact-submit">Contact Sandford Digital</button></div>
+          <p class="form__status" id="contact-status" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" aria-label="Footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div><a href="/" class="logo logo--white" aria-label="Sandford Digital – Home">
+        <span class="logo__inner">
+          <span class="logo__sandford">Sandford</span>
+          <span class="logo__digital">Digital</span>
+          <span class="logo__bar-wrap" aria-hidden="true"><span class="logo__bar" style="display:block"></span></span>
+        </span>
+      </a></div>
+        <nav aria-label="Footer">
+          <p class="footer__title">Navigation</p>
+          <ul class="footer__links">
+            <li><a href="/product">Product</a></li>
+            <li><a href="/housing">Housing</a></li>
+            <li><a href="/contractors">Contractors</a></li>
+            <li><a href="/inspection-inventory">Inspection &amp; Inventory</a></li>
+            <li><a href="/evidence-sdk">Evidence SDK</a></li>
+            <li><a href="/verify">Verify Evidence</a></li>
+            <li><a href="/self-assessment">Evidence Readiness Self-Assessment</a></li>
+            <li><a href="/privacy-policy">Privacy</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="https://portal.sandford.digital">Client Portal</a></li>
+            <li><a href="https://insights.sandford.digital">Insights</a></li>
+          </ul>
+        </nav>
+        <address>
+          <p class="footer__title">Get in touch</p>
+          <a href="mailto:hello@sandford.digital">hello@sandford.digital</a>
+          <a href="https://www.linkedin.com/in/mazhayes" rel="noopener noreferrer">LinkedIn</a>
+        </address>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Sandford Digital Limited. Company registration number 17400537. All rights reserved.</p>
+        <p>Sandford Site Scan is a patent-pending technology of Sandford Digital Limited. UK Patents Act 1977. PCT/EP reservation filed.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Verify Inspection Evidence | Sandford Digital</title>
+  <meta name="description" content="Use Sandford Digital&#x27;s public Chain-Verification Tool to independently verify an inspection evidence chain against its public cryptographic anchor." />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/site.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="wrap nav__row">
+      <a href="/" class="logo" aria-label="Sandford Digital – Home">
+        <span class="logo__inner">
+          <span class="logo__sandford">Sandford</span>
+          <span class="logo__digital">Digital</span>
+          <span class="logo__bar-wrap" aria-hidden="true"><span class="logo__bar" style="display:block"></span></span>
+        </span>
+      </a>
+      <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel">Menu</button>
+      <div class="nav__panel" id="nav-panel">
+        <nav aria-label="Primary">
+          <ul class="nav__links">
+          <li><a href="/product">Product</a></li>
+          <li><a href="/housing">Housing</a></li>
+          <li><a href="/contractors">Contractors</a></li>
+          <li><a href="/inspection-inventory">Inspection &amp; Inventory</a></li>
+          <li><a href="/evidence-sdk">Evidence SDK</a></li>
+          <li><a href="/verify" aria-current="page">Verify Evidence</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="nav__actions">
+          <a class="nav__login" href="https://portal.sandford.digital">Client Login</a>
+          <a class="nav__cta" href="/contact#contact-form">Discuss a pilot</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="main">
+    <section class="hero">
+      <div class="wrap">
+        <h1>Don't take our word for it. Verify the evidence.</h1>
+        <p>Sandford Digital's Chain-Verification Tool is public and does not require an account.</p>
+        <p>Use the Session ID from a Sandford Digital report, or scan its QR code, to check the evidence chain against the cryptographic proof anchored publicly.</p>
+        <!-- TODO(verification-reference): this asks for the report's "Session ID" (copy
+             shipped as written, by decision), but a Site Scan Session ID (SSS-…) is NOT
+             what verify.hellohandover.com accepts — it only resolves the 64-character
+             verification reference carried by the report's QR code. A typed Session ID
+             will be rejected by the verifier. Needs a real fix (Session ID -> reference
+             lookup, or one shared identifier), not just a copy change. See site.js. -->
+        <form class="inline-form" id="verify-form" action="https://verify.hellohandover.com/" method="get" novalidate>
+          <div class="field">
+            <label for="verify-input">Verify a Session</label>
+            <input type="text" id="verify-input" name="reference" autocomplete="off" autocapitalize="off" spellcheck="false" required />
+          </div>
+          <button type="submit" class="btn btn--primary">Verify a Session</button>
+        </form>
+      </div>
+    </section>
+    <section class="section section--grey">
+      <div class="wrap prose">
+        <h2>What happens when you verify</h2>
+        <ol class="steps">
+          <li><h3>1. Load the session</h3><p>The Session ID identifies the evidence session to be checked.</p></li>
+          <li><h3>2. Reconstruct the chain</h3><p>The verifier re-computes the cryptographic chain from the underlying evidence records available to that verification session.</p></li>
+          <li><h3>3. Check the public anchor</h3><p>The resulting chain is compared with the cryptographic proof anchored on Arbitrum One.</p></li>
+          <li><h3>4. Show the result</h3><p>If the values match, the verifier can demonstrate that the checked evidence chain corresponds with the state represented by the public anchor.</p></li>
+        </ol>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap prose">
+        <h2>What a successful verification means</h2>
+        <p>A successful result is evidence of integrity: the verified chain matches the cryptographic proof that was publicly anchored.</p>
+        <p>It does not, by itself, determine whether the subject of a photograph is correctly interpreted, whether an inspection conclusion is professionally correct, or whether a particular person personally created the evidence.</p>
+        <p>Those are separate questions.</p>
+      </div>
+    </section>
+    <section class="section section--dark">
+      <div class="wrap prose">
+        <h2>Why the verifier is public</h2>
+        <p>Independent verification is only meaningful if the recipient is not required to accept Sandford Digital's own statement that the evidence is intact.</p>
+        <p>The public anchor gives the verification process an external cryptographic reference point.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="wrap prose">
+        <h2>Privacy</h2>
+        <p>Sandford Digital does not publish the underlying inspection photographs or personal information to the blockchain. Public anchoring is used for cryptographic proof.</p>
+        <p>Need help with a report or Session ID? <a href="/contact">Contact Sandford Digital.</a></p>
+      </div>
+    </section>
+  </main>
+  <footer class="footer" aria-label="Footer">
+    <div class="wrap">
+      <div class="footer__top">
+        <div><a href="/" class="logo logo--white" aria-label="Sandford Digital – Home">
+        <span class="logo__inner">
+          <span class="logo__sandford">Sandford</span>
+          <span class="logo__digital">Digital</span>
+          <span class="logo__bar-wrap" aria-hidden="true"><span class="logo__bar" style="display:block"></span></span>
+        </span>
+      </a></div>
+        <nav aria-label="Footer">
+          <p class="footer__title">Navigation</p>
+          <ul class="footer__links">
+            <li><a href="/product">Product</a></li>
+            <li><a href="/housing">Housing</a></li>
+            <li><a href="/contractors">Contractors</a></li>
+            <li><a href="/inspection-inventory">Inspection &amp; Inventory</a></li>
+            <li><a href="/evidence-sdk">Evidence SDK</a></li>
+            <li><a href="/verify">Verify Evidence</a></li>
+            <li><a href="/self-assessment">Evidence Readiness Self-Assessment</a></li>
+            <li><a href="/privacy-policy">Privacy</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="https://portal.sandford.digital">Client Portal</a></li>
+            <li><a href="https://insights.sandford.digital">Insights</a></li>
+          </ul>
+        </nav>
+        <address>
+          <p class="footer__title">Get in touch</p>
+          <a href="mailto:hello@sandford.digital">hello@sandford.digital</a>
+          <a href="https://www.linkedin.com/in/mazhayes" rel="noopener noreferrer">LinkedIn</a>
+        </address>
+      </div>
+      <div class="footer__bottom">
+        <p>© 2026 Sandford Digital Limited. Company registration number 17400537. All rights reserved.</p>
+        <p>Sandford Site Scan is a patent-pending technology of Sandford Digital Limited. UK Patents Act 1977. PCT/EP reservation filed.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="/site.js"></script>
+</body>
+</html>
