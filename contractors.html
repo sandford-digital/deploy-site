@@ -13,39 +13,36 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-  <header class="nav">
-    <div class="wrap nav__row">
-      <a href="/" class="logo" aria-label="Sandford Digital – Home">
+  <header class="nav" id="nav">
+    <a href="/" class="logo" aria-label="Sandford Digital – Home">
         <span class="logo__inner">
           <span class="logo__sandford">Sandford</span>
           <span class="logo__digital">Digital</span>
-          <span class="logo__bar-wrap" aria-hidden="true"><span class="logo__bar" style="display:block"></span></span>
+          <span class="logo__bar-wrap" aria-hidden="true"><span class="logo__bar"></span></span>
         </span>
       </a>
-      <button class="nav__toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-panel">Menu</button>
-      <div class="nav__panel" id="nav-panel">
-        <nav aria-label="Primary">
-          <ul class="nav__links">
-          <li><a href="/product">Product</a></li>
-          <li><a href="/housing">Housing</a></li>
-          <li><a href="/contractors" aria-current="page">Contractors</a></li>
-          <li><a href="/inspection-inventory">Inspection &amp; Inventory</a></li>
-          <li><a href="/evidence-sdk">Evidence SDK</a></li>
-          <li><a href="/verify">Verify Evidence</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
-          </ul>
-        </nav>
-        <div class="nav__actions">
-          <a class="nav__login" href="https://portal.sandford.digital">Client Login</a>
-          <a class="nav__cta" href="/contact#contact-form">Discuss a pilot</a>
-        </div>
+    <button type="button" class="nav__hamburger" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-panel">
+      <span class="nav__hamburger-box" aria-hidden="true"><span></span><span></span><span></span></span>
+    </button>
+    <div class="nav__panel" id="nav-panel">
+      <nav aria-label="Primary">
+        <ul class="nav__links">
+        <li><a class="nav__link" href="/product">Product</a></li>
+        <li class="nav__item--sub"><button type="button" class="nav__parent is-current" aria-expanded="false" aria-controls="sub-solutions">Solutions <svg class="nav__chev" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="nav__sub" id="sub-solutions"><li><a href="/housing">Housing</a></li><li><a href="/contractors" aria-current="page">Contractors</a></li><li><a href="/inspection-inventory">Inspection &amp; Inventory</a></li></ul></li>
+        <li class="nav__item--sub"><button type="button" class="nav__parent" aria-expanded="false" aria-controls="sub-evidence">Evidence <svg class="nav__chev" viewBox="0 0 10 10" aria-hidden="true" focusable="false"><path d="M1.5 3.5 5 7l3.5-3.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button><ul class="nav__sub" id="sub-evidence"><li><a href="/evidence-sdk">Evidence SDK</a></li><li><a href="/verify">Verify Evidence</a></li></ul></li>
+        <li><a class="nav__link" href="/about">About</a></li>
+        <li><a class="nav__link" href="/contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="nav__actions">
+        <a class="nav__login" href="https://portal.sandford.digital">Client Login</a>
+        <a class="nav__cta" href="/contact#contact-form">Discuss a pilot</a>
       </div>
     </div>
   </header>
   <main id="main">
-    <section class="hero">
-      <div class="wrap">
+    <section class="hero hero--short">
+      <div class="hero__content">
         <h1>When the work is questioned later, what proves what happened on site?</h1>
         <p>Sandford Digital helps property-service organisations create a verifiable evidence trail around site condition, work activity and inspection records.</p>
         <div class="btn-row"><a class="btn btn--primary" href="/contact#contact-form">Discuss a contractor pilot</a></div>
@@ -103,7 +100,7 @@
         <span class="logo__inner">
           <span class="logo__sandford">Sandford</span>
           <span class="logo__digital">Digital</span>
-          <span class="logo__bar-wrap" aria-hidden="true"><span class="logo__bar" style="display:block"></span></span>
+          <span class="logo__bar-wrap" aria-hidden="true"><span class="logo__bar"></span></span>
         </span>
       </a></div>
         <nav aria-label="Footer">

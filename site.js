@@ -15,15 +15,59 @@
   window.addEventListener('resize', syncLogoBars);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(syncLogoBars);
 
-  /* Mobile nav. */
+  /* Nav: frosted bar firms up once scrolled (original behaviour). */
+  var navEl = document.getElementById('nav');
+  function onScroll() { if (navEl) navEl.classList.toggle('scrolled', window.scrollY > 20); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* Dropdowns (Solutions, Evidence): a real <button aria-expanded> per
+     parent, so they work by keyboard (Enter/Space), touch and screen
+     reader. Mouse hover also opens them on desktop — CSS shows the menu,
+     and these listeners keep aria-expanded in step. Escape closes and
+     returns focus to the parent; focus or a click outside closes. */
+  var desktopHover = window.matchMedia('(hover: hover) and (min-width: 1025px)');
+  var parents = Array.prototype.slice.call(document.querySelectorAll('.nav__parent'));
+  function setOpen(btn, open) {
+    btn.setAttribute('aria-expanded', String(open));
+    document.getElementById(btn.getAttribute('aria-controls')).classList.toggle('open', open);
+  }
+  function closeAll(except) { parents.forEach(function (b) { if (b !== except) setOpen(b, false); }); }
+  parents.forEach(function (btn) {
+    var li = btn.parentElement;
+    btn.addEventListener('click', function () {
+      var open = btn.getAttribute('aria-expanded') !== 'true';
+      closeAll(btn);
+      setOpen(btn, open);
+    });
+    li.addEventListener('mouseenter', function () { if (desktopHover.matches) { closeAll(btn); setOpen(btn, true); } });
+    li.addEventListener('mouseleave', function () { if (desktopHover.matches) setOpen(btn, false); });
+    li.addEventListener('focusout', function (e) { if (!li.contains(e.relatedTarget)) setOpen(btn, false); });
+    li.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && btn.getAttribute('aria-expanded') === 'true') { setOpen(btn, false); btn.focus(); }
+    });
+  });
+  document.addEventListener('click', function (e) { if (!e.target.closest || !e.target.closest('.nav__item--sub')) closeAll(); });
+
+  /* Mobile: hamburger icon toggles the panel. */
   var toggle = document.getElementById('nav-toggle');
   var panel = document.getElementById('nav-panel');
   if (toggle && panel) {
     toggle.addEventListener('click', function () {
       var open = panel.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+      if (navEl) navEl.classList.toggle('is-open', open);
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.classList.contains('open')) { toggle.click(); toggle.focus(); }
     });
   }
+
+  /* Homepage hero: accent underline draws in (original signature). */
+  setTimeout(function () {
+    document.querySelectorAll('.underline-word').forEach(function (el) { el.classList.add('in-view'); });
+  }, 200);
 
   /* Contact form — same endpoint and payload as the previous homepage
      "Request a Demo" modal (name, email, organisation, message). */
