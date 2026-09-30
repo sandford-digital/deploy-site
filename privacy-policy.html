@@ -255,6 +255,9 @@
       <!-- 7. Data retention -->
       <section>
         <h2>07 // HOW LONG WE KEEP DATA</h2>
+
+        <h3>TRACK A — EVIDENCE CONTENT</h3>
+        <p>Evidence content is the substance of a survey — captured frames, spatial and session metadata, and AI assessment output.</p>
         <ul>
           <li>Session audit trails — 90 days by default, configurable per operator contract</li>
           <li>AI assessment outputs — 90 days by default, configurable per operator contract</li>
@@ -263,6 +266,12 @@
           <li>Contact and demo request data — 12 months</li>
           <li>Anonymised aggregate data — indefinitely (no personal data present)</li>
         </ul>
+        <p>Where an operator configures a longer retention period than the 90-day default, this is typically to preserve evidence for as long as it may be needed to defend or bring a legal claim — under the Limitation Act 1980, up to 6 years for most claims founded on a contract (England and Wales). Evidence content retained on this basis is deleted once that period ends, or sooner on request (see Section 08).</p>
+
+        <h3>TRACK B — TAMPER-EVIDENT FINGERPRINT</h3>
+        <div class="highlight-box">
+          <p>We create a tamper-proof fingerprint of every survey — a short code, not the photos themselves — and record that fingerprint permanently on a public blockchain. Your actual photos, notes and other evidence stay in our own secure database; the blockchain never sees them. What the fingerprint does is let someone — a regulator, an insurer, a court — check that the photos and notes in our database haven't been quietly changed since the day they were captured, without having to just take our word for it. If those photos and notes are ever deleted (for example, if someone asks us to remove their data), the fingerprint is still sitting on the blockchain, but there's nothing left for it to check against — so it stops meaning anything. The fingerprint only works as proof for as long as the real evidence it's checking still exists.</p>
+        </div>
       </section>
 
       <!-- 8. Your rights -->
