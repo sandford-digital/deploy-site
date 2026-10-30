@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- PRE-SOLICITOR DRAFT v1.1 on branch cloud/pre-solicitor-policy. NOT PUBLISHED. Cells marked SOLICITOR TO COMPLETE are for the solicitor. Remove this comment and the draft rows' marker text before publication. -->
+  <!-- PRE-SOLICITOR DRAFT v1.2 on branch cloud/pre-solicitor-policy. NOT PUBLISHED. Cells marked SOLICITOR TO COMPLETE are for the solicitor. Remove this comment and the draft rows' marker text before publication. -->
   <title>Privacy Policy — Sandford Digital Limited</title>
     <link rel="canonical" href="https://sandford.digital/privacy-policy" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -80,7 +80,7 @@
       <div class="hero-meta">
         Sandford Digital Limited<br/>
         Last updated: [DATE TO BE ADDED ON PUBLICATION]<br/>
-        Version: 1.1 (draft for solicitor review)<br/>
+        Version: 1.2 (draft for solicitor review)<br/>
         <br/>
         This policy covers sandford.digital, portal.sandford.digital,<br/>
         insights.sandford.digital, the Sandford Site Scan mobile application,<br/>
@@ -100,9 +100,13 @@
           <li>Customer survey data. Our customers are the organisations that commission surveys using Sandford Site Scan, for example housing associations, councils and managing agents (each is a "customer" in this policy). For the photos, video, sound, notes, answers and other survey records made for a customer, the customer is the controller and Sandford Digital is its processor. We handle that data on the customer's instructions. If you appear in a survey, for example as an occupant, please contact the customer first.</li>
           <li>Our own data. Sandford Digital is the controller of the data we hold about accounts and sign-in, organisation and access records, device and technical logs, enquiries and business contacts, and visits to our websites.</li>
         </ul>
+        <p>Handover is a separate service from Sandford Digital that runs on some of the same servers. It has its own privacy notice, and this policy does not cover it.</p>
         <p>We can be contacted at:</p>
+        <!-- ICO registration number to be added if required -->
         <div class="contact-box">
           <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">SANDFORD DIGITAL LIMITED</strong></p>
+          <p>Company number: 17400537</p>
+          <p>Registered office: 10 London Lane, London E8 3PR</p>
           <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
           <p>Website: <a href="https://sandford.digital">sandford.digital</a></p>
         </div>
@@ -236,6 +240,8 @@
           </tbody>
         </table>
 
+        <p>Use of survey data. We use customer survey data only to provide, secure and support the service. Any other use, such as aggregate insight, would need the customer's separate permission.</p>
+
         <h3>Account, device and technical data (Sandford Digital is the controller)</h3>
         <table class="data-table">
           <thead>
@@ -304,7 +310,8 @@
         </ul>
 
         <h3>C. Insights dashboard (insights.sandford.digital)</h3>
-        <p>The Insights site is for invited users. Account data (name, email, organisation) is collected for authentication only. It does not currently present survey data about individuals, and no customer's survey data is shown to another customer or to third parties. If we ever offer grouped figures or benchmarks, they will not identify individuals or customers, they will only use a customer's data where the customer's agreement with us allows it, and we will update this policy first.</p>
+        <!-- MUST be updated when the Insights site shows data to anyone other than Sandford Digital. -->
+        <p>The Insights site is currently only a sign-in page. It shows no data. Only Sandford Digital uses it. Sign-in uses account data (name, email, organisation) for authentication only. No customer's survey data is shown there. If we ever show grouped figures, they would need the customer's separate permission (see "Use of survey data" in part A), they would not identify individuals or customers, and we will update this policy first.</p>
 
         <h3>D. Websites (sandford.digital and the verification page)</h3>
         <ul>
@@ -317,7 +324,7 @@
         </ul>
 
         <h3>E. Business contacts and email</h3>
-        <p>Sandford Digital is the controller of the business contact details we hold about people at housing associations, fleet and rail operators and other organisations we may contact about our services. These are names, work email addresses, phone numbers, organisation and role, and notes of our contact with them. They come from publicly available and business sources, and from people who contact us. They are held in our database in Google Cloud and in our email system (Google Workspace). We watch replies to our outreach emails so we can follow them up, and we may use an AI service (Anthropic) to help sort those replies, for example into interested, not interested or a question. You can ask us to stop contacting you at any time by replying to our email or writing to privacy@sandford.digital.</p>
+        <p>Sandford Digital is the controller of the business contact details we hold about people at housing associations, fleet and rail operators and other organisations we may contact about our services. These are names, work email addresses, phone numbers, organisation and role, and notes of our contact with them. They come from publicly available and business sources, and from people who contact us. They are held in our database in Google Cloud and in our email system (Google Workspace). An automated job on our servers checks our business mailboxes every 15 minutes. When a reply matches a business contact in our contacts system, the job sends the subject and body of the reply to Anthropic's AI service (the Anthropic API) to sort it, for example into interested, not interested or a question. The job then labels the email as handled and marks it as read. It also reads our sent mail to match recipients to contacts. This means the email text of business contacts goes to Anthropic (Sections 04 and 06). You can ask us to stop contacting you at any time by replying to our email or writing to privacy@sandford.digital.</p>
         <table class="data-table">
           <thead>
             <tr>
@@ -333,6 +340,12 @@
               <td>Tell organisations about our services, respond to enquiries and keep a record of our contact</td>
               <td>[SOLICITOR TO COMPLETE]</td>
               <td>[SOLICITOR TO COMPLETE]. Contact form submissions: 12 months</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Subject and body of replies from business contacts, sent to Anthropic's AI service</td>
+              <td>Sort replies so we can follow them up</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>We do not keep the copy sent to Anthropic. Anthropic's own retention applies (Section 04)</td>
             </tr>
           </tbody>
         </table>
@@ -360,8 +373,9 @@
           <li>Return a structured JSON assessment: severity, findings, confidence, recommendation</li>
           <li>Describe only observable physical conditions of the property, and make no comment on occupants, housekeeping, belongings or pets</li>
         </ul>
-        <p>We do not ask the AI to identify or describe people. People can still appear in a photo, because the face covering can miss a face and does not cover bodies, voices or other things that identify someone. The surveyor is instructed to keep faces, family photos, letters, screens and name labels out of frame, and the app shows this instruction before the first photo or video.</p>
-        <p>Anthropic keeps what we send under its own terms. At the time of writing, its published position is that it deletes inputs and outputs within 30 days of receipt, and may keep them for up to two years where its systems flag content as breaching its usage policy. We do not have a zero retention agreement with Anthropic. We do not keep the copy sent to Anthropic. We keep the AI assessment output as part of the survey record.</p>
+        <p>We do not ask the AI to identify or describe people. People can still appear in a photo, because the face covering can miss a face and does not cover bodies, voices or other things that identify someone. Before the first photo or video, the app shows this notice: "Photos, and a still picture from each video, are sent to Anthropic's AI service in the United States to check for defects. Keep faces, family photos, letters, screens and name labels out of frame." Before filming, the app also asks the surveyor to confirm whether sound is required.</p>
+        <p>We also use Anthropic's API for a second purpose. It sorts replies from our business contacts (Section 03, part E). For that, the subject and body of the reply are sent to Anthropic. This is our own business email, not survey data.</p>
+        <p>Anthropic keeps what we send, for both purposes, under its own terms. At the time of writing, its published position is that it deletes inputs and outputs within 30 days of receipt, and may keep them for up to two years where its systems flag content as breaching its usage policy. We do not have a zero retention agreement with Anthropic. We do not keep the copies sent to Anthropic. We keep the AI assessment output as part of the survey record.</p>
         <div class="highlight-box">
           <p>The AI result is advisory. It is shown to the surveyor and in the report as AI-assisted triage, not as an inspection finding, and it is not part of the tamper-evident record. We do not use it to make decisions about individuals. Decisions about repairs or action are made by the customer's staff. Our use of AI is assistive, not determinative.</p>
         </div>
@@ -398,7 +412,7 @@
             </tr>
             <tr>
               <td>Anthropic</td>
-              <td>AI vision processing via the Claude API (Section 04)</td>
+              <td>First, AI vision processing of survey photos and video frames via the Claude API (Section 04). Second, sorting replies from our business contacts: the subject and body of the reply are sent (Section 03, part E)</td>
               <td>United States</td>
             </tr>
             <tr>
@@ -413,12 +427,12 @@
             </tr>
             <tr>
               <td>Google Workspace (Google)</td>
-              <td>Our email and documents, including mail to and from hello@sandford.digital and privacy@sandford.digital</td>
+              <td>Runs our sandford.digital email inboxes, including hello@sandford.digital and privacy@sandford.digital, and our documents</td>
               <td>United States and other countries where Google operates</td>
             </tr>
             <tr>
               <td>Postmark</td>
-              <td>Sending email on our behalf, such as invitations to join an organisation and notifications of contact form enquiries. It receives the recipient's email address and the message</td>
+              <td>Sending our emails, such as invitations to join an organisation and notifications. It receives the recipient's email address and the message</td>
               <td>The provider is based in the United States</td>
             </tr>
             <tr>
@@ -487,6 +501,7 @@
         <p>Evidence content is the substance of a survey: photos, video, sound, notes and answers, location, spatial and session metadata, and AI assessment output.</p>
         <ul>
           <li>Survey records (photos, video and sound, notes and answers, location with height, address, session details and AI assessment output): six years from the date of the survey, then deleted</li>
+          <li>Earlier if the customer instructs, or if a valid erasure request requires it.</li>
           <li>Audit log, device identifiers and technical logs: 90 days</li>
           <li>Unredacted original photos are not kept. The covered photo is the record</li>
           <li>Surveyor, organisation and portal account details and name: until the account is deleted, and not beyond six years from last use</li>
@@ -557,7 +572,8 @@
         <h2>12 // CONTACT US</h2>
         <div class="contact-box">
           <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">DATA PROTECTION ENQUIRIES</strong></p>
-          <p style="margin-top:16px">Sandford Digital Limited</p>
+          <p style="margin-top:16px">Sandford Digital Limited, company number 17400537</p>
+          <p>Registered office: 10 London Lane, London E8 3PR</p>
           <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
           <p style="margin-top:16px;font-size:12px;color:var(--dim)">For general enquiries and account deletion requests: <a href="mailto:hello@sandford.digital" style="color:var(--blue);font-family:var(--font-mono);font-size:12px">hello@sandford.digital</a></p>
         </div>
