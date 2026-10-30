@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- PRE-SOLICITOR DRAFT BRANCH cloud/pre-solicitor-policy. NOT PUBLISHED. Every change is marked SOLICITOR REVIEW and listed in policy-change-list (F1-F9, D1-D5). -->
   <title>Privacy Policy — Sandford Digital Limited</title>
+  <!-- SOLICITOR REVIEW F3: canonical URL added (site links and sitemap use /privacy-policy) -->
+  <link rel="canonical" href="https://sandford.digital/privacy-policy" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <meta name="description" content="Privacy Policy for Sandford Digital Limited and the Sandford Site Scan spatial triage SDK." />
   <style>
@@ -50,6 +53,8 @@
     .data-table td { color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
     .data-table tr:last-child td { border-bottom: none; }
 
+    .draft-row td { background: #3b2f0a; color: #fde68a; }
+    .draft-row td:first-child::before { content: "DRAFT: "; font-family: var(--font-mono); font-size: 10px; letter-spacing: 1px; color: #f59e0b; }
     .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-top: 24px; }
     .contact-box p { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
     .contact-box a { color: var(--blue); text-decoration: none; font-family: var(--font-mono); font-size: 13px; }
@@ -90,11 +95,13 @@
       <!-- 1. Who we are -->
       <section>
         <h2>01 // WHO WE ARE</h2>
-        <p>Sandford Digital Limited ("Sandford Digital", "we", "us", "our") is a company registered in England and Wales. We are the controller of personal data processed through our websites and the Sandford Site Scan spatial triage SDK.</p>
+        <!-- SOLICITOR REVIEW F1: company number added (17400537); previous page text gave no number -->
+        <p>Sandford Digital Limited ("Sandford Digital", "we", "us", "our") is a company registered in England and Wales (company number 17400537). We are the controller of personal data processed through our websites and the Sandford Site Scan spatial triage SDK.</p>
         <p>We can be contacted at:</p>
         <div class="contact-box">
           <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">SANDFORD DIGITAL LIMITED</strong></p>
-          <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
+          <!-- SOLICITOR REVIEW F2: contact address changed from privacy@ to hello@ (hello@ is the confirmed working mailbox) -->
+          <p>Email: <a href="mailto:hello@sandford.digital">hello@sandford.digital</a></p>
           <p>Website: <a href="https://sandford.digital">sandford.digital</a></p>
         </div>
       </section>
@@ -160,6 +167,37 @@
               <td>Vehicle identification at handover</td>
               <td>Legitimate interests of the operator</td>
               <td>As per session audit trail</td>
+            </tr>
+            <!-- SOLICITOR REVIEW D1-D5 (C2): DRAFT rows. Purpose, legal basis and retention cells are deliberately left for the solicitor; nothing here is a decision. -->
+            <tr class="draft-row">
+              <td>GPS location (latitude, longitude, accuracy) captured with each photo or video. Not listed on the current page.</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Altitude and vertical accuracy (once synced to our servers)</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Audio recorded with short video clips (sound is captured; conversations of surveyors, occupants or bystanders may be heard)</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Dictation (voice notes converted to text by the device operating system, which may use Apple or Google speech recognition)</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Device identifiers (such as installation or device ID, device type, operating system and app version)</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
             </tr>
           </tbody>
         </table>
@@ -237,9 +275,10 @@
               <td>Session results and audit trail for their own assets</td>
               <td>UK / EU</td>
             </tr>
+            <!-- SOLICITOR REVIEW F4: provider named; storage services named (Firestore and Cloud Storage). Location text left exactly as before. -->
             <tr>
-              <td>Cloud infrastructure provider</td>
-              <td>Hosting and data storage</td>
+              <td>Google Cloud Platform (Google)</td>
+              <td>Hosting and data storage: Firestore database and Cloud Storage (photos, videos and files)</td>
               <td>UK / EU only</td>
             </tr>
             <tr>
@@ -247,6 +286,40 @@
               <td>Anonymised regional aggregate data only — no personal data</td>
               <td>UK / EU</td>
             </tr>
+            <!-- SOLICITOR REVIEW F5: missing recipients added. Purposes taken from how the app is built; locations NOT yet confirmed (marked). -->
+            <tr>
+              <td>Google (Firebase Authentication and App Check)</td>
+              <td>Sign-in of users and checking that requests come from the genuine app</td>
+              <td>[LOCATION TO BE CONFIRMED]</td>
+            </tr>
+            <tr>
+              <td>Ideal Postcodes</td>
+              <td>Address lookup: the address or postcode typed by the surveyor is sent to find the matching property</td>
+              <td>[LOCATION TO BE CONFIRMED]</td>
+            </tr>
+            <tr>
+              <td>Apple and Google (speech recognition)</td>
+              <td>Turning dictated voice notes into text, where the surveyor uses dictation. The device operating system may send the audio to Apple or Google for this.</td>
+              <td>[LOCATION TO BE CONFIRMED]</td>
+            </tr>
+            <tr>
+              <td>Expo</td>
+              <td>Checking for and delivering app updates</td>
+              <td>[LOCATION TO BE CONFIRMED]</td>
+            </tr>
+            <tr>
+              <td>Alchemy</td>
+              <td>Blockchain network access used to record the fingerprint (hash only) described in Track B. No photos, notes or other personal data are sent.</td>
+              <td>[LOCATION TO BE CONFIRMED]</td>
+            </tr>
+            <tr>
+              <td>Cloudflare</td>
+              <td>[PURPOSE TO BE CONFIRMED BY SANDFORD DIGITAL: network, DNS or content delivery services]</td>
+              <td>[LOCATION TO BE CONFIRMED]</td>
+            </tr>
+            <!-- SOLICITOR REVIEW F5 (held back, not rendered): Sentry error reporting. Add only if the deployed functions are confirmed to use Sentry (check A3 not yet possible from the cloud session).
+            <tr><td>Sentry</td><td>Error and crash reporting</td><td>[LOCATION TO BE CONFIRMED]</td></tr>
+            -->
           </tbody>
         </table>
         <p>We do not sell, rent, or trade personal data. We do not share personal data with advertisers or data brokers.</p>
@@ -287,7 +360,8 @@
           <li><strong style="color:var(--text)">Objection</strong> — object to processing based on legitimate interests</li>
           <li><strong style="color:var(--text)">Automated decisions</strong> — you have the right not to be subject to solely automated decisions that have legal or significant effects on you</li>
         </ul>
-        <p>To exercise any of these rights, contact us at <a href="mailto:privacy@sandford.digital" style="color:var(--blue);font-family:var(--font-mono)">privacy@sandford.digital</a>. We will respond within 30 days.</p>
+        <p><!-- SOLICITOR REVIEW F2: contact address privacy@ changed to hello@ -->
+        To exercise any of these rights, contact us at <a href="mailto:hello@sandford.digital" style="color:var(--blue);font-family:var(--font-mono)">hello@sandford.digital</a>. We will respond within 30 days.</p>
         <p>You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" style="color:var(--blue);font-family:var(--font-mono)">ico.org.uk</a>.</p>
       </section>
 
@@ -322,8 +396,8 @@
         <div class="contact-box">
           <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">DATA PROTECTION ENQUIRIES</strong></p>
           <p style="margin-top:16px">Sandford Digital Limited</p>
-          <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
-          <p style="margin-top:16px;font-size:12px;color:var(--dim)">For general enquiries: <a href="mailto:hello@sandford.digital" style="color:var(--blue);font-family:var(--font-mono);font-size:12px">hello@sandford.digital</a></p>
+          <!-- SOLICITOR REVIEW F2: privacy@ replaced by hello@; the separate "general enquiries" line removed because it would now repeat the same address -->
+          <p>Email: <a href="mailto:hello@sandford.digital">hello@sandford.digital</a></p>
         </div>
       </section>
 
