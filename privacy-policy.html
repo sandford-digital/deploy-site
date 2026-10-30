@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- PRE-SOLICITOR DRAFT BRANCH cloud/pre-solicitor-policy. NOT PUBLISHED. Every change is marked SOLICITOR REVIEW and listed in policy-change-list (F1-F9, D1-D5). -->
+  <!-- PRE-SOLICITOR DRAFT v1.1 on branch cloud/pre-solicitor-policy. NOT PUBLISHED. Cells marked SOLICITOR TO COMPLETE are for the solicitor. Remove this comment and the draft rows' marker text before publication. -->
   <title>Privacy Policy — Sandford Digital Limited</title>
     <link rel="canonical" href="https://sandford.digital/privacy-policy" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -35,7 +35,7 @@
     .content { padding: 64px 0; }
     .content section { margin-bottom: 56px; }
     .content h2 { font-family: var(--font-mono); font-size: 14px; font-weight: 700; letter-spacing: 2px; color: var(--text); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-    .content h3 { font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--muted); margin: 24px 0 12px; }
+    .content h3 { font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--muted); margin: 24px 0 12px; text-transform: uppercase; }
     .content p { color: var(--muted); margin-bottom: 16px; font-size: 15px; }
     .content ul { color: var(--muted); margin: 0 0 16px 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
     .content ul li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; }
@@ -79,11 +79,12 @@
       <h1 class="hero-title">Privacy Policy</h1>
       <div class="hero-meta">
         Sandford Digital Limited<br/>
-        Last updated: 1 July 2026<br/>
-        Version: 1.0<br/>
+        Last updated: [DATE TO BE ADDED ON PUBLICATION]<br/>
+        Version: 1.1 (draft for solicitor review)<br/>
         <br/>
         This policy covers sandford.digital, portal.sandford.digital,<br/>
-        insights.sandford.digital, and the Sandford Site Scan mobile application.
+        insights.sandford.digital, the Sandford Site Scan mobile application,<br/>
+        and the services behind them, including the public verification page.
       </div>
     </div>
   </div>
@@ -94,11 +95,15 @@
       <!-- 1. Who we are -->
       <section>
         <h2>01 // WHO WE ARE</h2>
-                <p>Sandford Digital Limited ("Sandford Digital", "we", "us", "our") is a company registered in England and Wales (company number 17400537). We are the controller of personal data processed through our websites and the Sandford Site Scan spatial triage SDK.</p>
+        <p>Sandford Digital Limited ("Sandford Digital", "we", "us", "our") is a company registered in England and Wales (company number 17400537). We handle personal data in two different roles.</p>
+        <ul>
+          <li>Customer survey data. Our customers are the organisations that commission surveys using Sandford Site Scan, for example housing associations, councils and managing agents (each is a "customer" in this policy). For the photos, video, sound, notes, answers and other survey records made for a customer, the customer is the controller and Sandford Digital is its processor. We handle that data on the customer's instructions. If you appear in a survey, for example as an occupant, please contact the customer first.</li>
+          <li>Our own data. Sandford Digital is the controller of the data we hold about accounts and sign-in, organisation and access records, device and technical logs, enquiries and business contacts, and visits to our websites.</li>
+        </ul>
         <p>We can be contacted at:</p>
         <div class="contact-box">
           <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">SANDFORD DIGITAL LIMITED</strong></p>
-                    <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
+          <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
           <p>Website: <a href="https://sandford.digital">sandford.digital</a></p>
         </div>
       </section>
@@ -107,14 +112,16 @@
       <section>
         <h2>02 // THE SHORT VERSION</h2>
         <div class="warning-box">
-          <p>Sandford Site Scan is designed to inspect <strong>assets</strong>, not people. Our system is built to process the condition of physical infrastructure — train carriages, fleet vehicles, facilities — not to identify, track, or profile individuals. Privacy protection is enforced in our capture pipeline before any image reaches an AI model. This is not a policy position. It is an architectural constraint.</p>
+          <p>Sandford Site Scan is designed to inspect <strong>assets</strong> such as buildings, vehicles and rail equipment, not people. It is not designed to identify, track or profile individuals. We take steps to reduce the risk that people appear in survey photos, but we cannot remove that risk: people, voices and personal items can still appear in photos, video and sound. This policy explains what we do about that.</p>
         </div>
         <ul>
           <li>Where the app finds a face in a photo, it covers the face with a solid block on the phone before the photo is saved or sent. The surveyor can also cover a letter, screen or name label by hand. The original photo is not kept. This reduces the risk that people appear in stored photos; it does not remove it</li>
-          <li>Photos taken in a survey are stored, with faces covered, as part of the survey record. Unredacted originals of photos are not kept. Video clips and their sound are stored as recorded and are not covered</li>
+          <li>Photos taken in a survey are stored, with faces covered, as part of the survey record. Unredacted originals of photos are not kept. Video is optional. Video clips are stored as recorded and are not covered, and they include sound unless the surveyor chooses Sound off</li>
+          <li>The first frame of each video is covered automatically, with the same face check as photos, before it is sent for AI checking. If the check cannot run, that frame is not sent</li>
+          <li>Location is optional. If the surveyor allows it, each photo and video records where it was taken, including the phone's raw height reading</li>
+          <li>For customer survey data, the customer decides how the data is used and we act on its instructions. We do not use customer survey data for our own purposes other than providing, securing and supporting the service</li>
           <li>We do not sell personal data to third parties under any circumstances</li>
-          <li>Aggregate trend intelligence is anonymised at regional level — operator identity is never included</li>
-          <li>You have the right to access, correct, and erase any personal data we hold about you</li>
+          <li>You have rights over your personal data, including to access, correct and ask for erasure of it (Section 08). Where a customer is the controller, we pass your request to the customer</li>
         </ul>
       </section>
 
@@ -122,9 +129,114 @@
       <section>
         <h2>03 // WHAT DATA WE COLLECT AND WHY</h2>
 
-        <h3>A. SANDFORD SITE SCAN — MOBILE APPLICATION</h3>
-        <p>The Sandford Site Scan app is an enterprise tool deployed by operators to their staff. When the app is in use, the following data is processed:</p>
+        <h3>A. Sandford Site Scan mobile application</h3>
+        <p>The Sandford Site Scan app is a professional tool. Accounts are issued by invitation to surveyors who work for a customer, and there is no sign-up in the app. The tables below describe the Housing version of the app, which is the version released through the app stores. It records surveys of individual homes and inspections of blocks (communal areas). The kinds of data are the same for both. Other versions are described in part F.</p>
 
+        <h3>Survey data (the customer is the controller; we are the processor)</h3>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>DATA TYPE</th>
+              <th>PURPOSE</th>
+              <th>LEGAL BASIS</th>
+              <th>RETENTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Photos, with faces covered on the phone</td>
+              <td>Record of the condition of the property or asset, and asset condition assessment via AI vision</td>
+              <td>Legitimate interests of the customer</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr>
+              <td>Video clips of up to 15 seconds (optional). Video is not covered</td>
+              <td>Record of the condition of the property or asset</td>
+              <td>Legitimate interests of the customer</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Audio recorded with video clips. Sound is on unless the surveyor chooses Sound off, in which case the clip has no audio track. Conversations of surveyors, occupants or bystanders may be heard</td>
+              <td>Part of the video record</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Photo covering: where a face is found on the phone, and areas the surveyor covers by hand</td>
+              <td>Cover people and personal items before a photo is saved or sent</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>The original photo is not kept</td>
+            </tr>
+            <tr>
+              <td>The copy sent for AI checking: a shrunk copy of each covered photo, or the covered first frame of a video, with the room name and area label</td>
+              <td>Asset condition assessment via AI vision (Section 04)</td>
+              <td>Legitimate interests of the customer</td>
+              <td>We do not keep this copy. Anthropic's own retention applies (Section 04)</td>
+            </tr>
+            <tr>
+              <td>AI assessment output</td>
+              <td>Damage finding and severity scoring, shown as advisory</td>
+              <td>Legitimate interests</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Location (latitude, longitude and accuracy) recorded with each photo or video. Optional: the surveyor can decline</td>
+              <td>Record where each photo or video was taken, and print it on the report</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr class="draft-row">
+              <td>The phone's raw height reading (altitude) and its accuracy, with the phone type and operating system version, recorded and sealed with the location of each photo or video</td>
+              <td>Recorded and sealed with the location. Not printed on the report and not checked by us</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr>
+              <td>Session ID, capture time and server receipt time</td>
+              <td>Audit trail and dispute resolution. The capture time comes from the phone's clock and is not independently verified</td>
+              <td>Legitimate interests / legal obligation</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr>
+              <td>Spatial anchor metadata</td>
+              <td>Mapping frame to position on asset</td>
+              <td>Legitimate interests</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Surveyor name and user ID</td>
+              <td>A professional name is required. It is attached to every survey, sealed in the record and printed on the report</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Six years from the date of the survey, as recorded in the survey record</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Notes and checklist answers, typed or dictated</td>
+              <td>The surveyor's observations, sealed in the record and printed on the report</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Dictation: spoken voice notes converted to text by the phone's operating system, which may use Apple or Google speech recognition</td>
+              <td>Let the surveyor speak a note instead of typing it</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>The app does not keep the audio. The resulting text is kept as part of the note (six years from the date of the survey)</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Property details: the postcode or address typed by the surveyor, the property or block identifier (such as a UPRN), and an estate label. For a single home we receive a coded form of the address or UPRN. For a block we store the address, postcode and UPRN</td>
+              <td>Identify the property or block being surveyed and find it again</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Six years from the date of the survey</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Fingerprint of each sealed survey record, published on a public blockchain (Section 07, Track B)</td>
+              <td>Let someone check later that the sealed record has not been quietly changed</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Permanent (the fingerprint holds no personal data)</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Account, device and technical data (Sandford Digital is the controller)</h3>
         <table class="data-table">
           <thead>
             <tr>
@@ -136,122 +248,134 @@
           </thead>
           <tbody>
             <tr class="draft-row">
-              <td>Photos (faces covered on the phone) and video clips (with sound, not covered)</td>
-              <td>Asset condition assessment via AI vision</td>
-              <td>Legitimate interests of the operator</td>
+              <td>Sign-in details: email address, password (held by Google's sign-in service) and user ID</td>
+              <td>Let the surveyor sign in. The user ID is recorded on each capture</td>
               <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Until the account is deleted, and not beyond six years from last use</td>
             </tr>
             <tr class="draft-row">
-              <td>Photo covering: where a face is found on the phone, and areas the surveyor covers by hand</td>
-              <td>Cover people and personal items before a photo is saved or sent</td>
+              <td>Organisation records: the organisation a person belongs to, their role, access rights, status (including suspension), and invitations (email address, role and expiry)</td>
+              <td>Control who can use the service and see what, and keep each customer's data separate</td>
               <td>[SOLICITOR TO COMPLETE]</td>
-              <td>The original photo is not kept</td>
-            </tr>
-            <tr>
-              <td>Spatial anchor metadata</td>
-              <td>Mapping frame to position on asset</td>
-              <td>Legitimate interests</td>
-              <td>Retained as part of session audit trail</td>
-            </tr>
-            <tr>
-              <td>Session ID and timestamp</td>
-              <td>Audit trail and dispute resolution</td>
-              <td>Legitimate interests / legal obligation</td>
-              <td>Six years from the date of the survey</td>
-            </tr>
-            <tr>
-              <td>AI assessment output</td>
-              <td>Damage finding and severity scoring</td>
-              <td>Legitimate interests</td>
-              <td>Six years from the date of the survey</td>
-            </tr>
-            <tr>
-              <td>License plate (Fleet regime)</td>
-              <td>Vehicle identification at handover</td>
-              <td>Legitimate interests of the operator</td>
-              <td>As per session audit trail</td>
-            </tr>
-            <!-- SOLICITOR REVIEW D1-D5 (C2): DRAFT rows. Purpose, legal basis and retention cells are deliberately left for the solicitor; nothing here is a decision. -->
-            <tr class="draft-row">
-              <td>GPS location (latitude, longitude, accuracy) captured with each photo or video. Not listed on the current page.</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Until the account is deleted, and not beyond six years from last use</td>
             </tr>
             <tr class="draft-row">
-              <td>Altitude and vertical accuracy, recorded and sealed with the location of each photo or video</td>
+              <td>Audit log of administration actions: who did what, to whom, and when (for example an invitation or a suspension)</td>
+              <td>Security, accountability and dispute resolution</td>
               <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>90 days</td>
             </tr>
             <tr class="draft-row">
-              <td>Audio recorded with short video clips (sound is captured; conversations of surveyors, occupants or bystanders may be heard)</td>
+              <td>Device identifiers and checks: a random installation ID, device type, operating system, app version, the number of items waiting to send, and an App Check token (a Google service that confirms the app is genuine)</td>
+              <td>Security, support, and spotting surveys that are stuck and not sending</td>
               <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>90 days</td>
             </tr>
             <tr class="draft-row">
-              <td>Dictation (voice notes converted to text by the device operating system, which may use Apple or Google speech recognition)</td>
+              <td>Technical logs: request records, error reports, and the network (IP) address of a request. For limiting repeated requests we keep only a scrambled form of the address</td>
+              <td>Keep the service secure and working, and limit abuse</td>
               <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>90 days</td>
             </tr>
             <tr class="draft-row">
-              <td>Device identifiers (such as installation or device ID, device type, operating system and app version)</td>
+              <td>App update checks: the app asks our update provider for updates when it opens, which shows at least the phone's IP address and platform</td>
+              <td>Deliver app updates</td>
               <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
-              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>Held by the update provider under its own terms</td>
             </tr>
           </tbody>
         </table>
 
         <div class="highlight-box">
-          <p><strong style="color:var(--text)">Photo covering:</strong> Before a photo is saved, fingerprinted or sent for AI checking, the app looks for faces on the phone and covers each one with a solid block. The surveyor can also draw a box over a letter, screen or name label. The original photo is not kept; the covered photo is what is stored and fingerprinted. This reduces the risk that people appear; it does not remove it. A face can be missed, people can be recognised from other things in a picture, and video clips and their sound are not covered. The app does not cover text automatically. Face detection finds where a face is, never who it is, and no face template or other biometric data is created or kept.</p>
+          <p><strong style="color:var(--text)">Photo covering:</strong> Before a photo is saved, fingerprinted or sent for AI checking, the app looks for faces on the phone and covers each one with a solid block. The check runs on the phone. The surveyor can also draw a box over a letter, screen or name label. The original photo is not kept; the covered photo is what is stored and fingerprinted. This reduces the risk that people appear; it does not remove it. A face can be missed, people can be recognised from other things in a picture, and video clips and their sound are not covered. The app does not cover text automatically. Face detection finds where a face is, never who it is, and no face template or other biometric data is created or kept. The first frame of each video clip goes through the same face check automatically, with no review screen, before it is sent for AI checking. If the check cannot run or cannot give a clear answer, that frame is not sent.</p>
         </div>
 
-        <h3>B. CLIENT PORTAL — portal.sandford.digital</h3>
-        <p>Operator and manager accounts on the client portal require the following personal data:</p>
+        <p>Reports. The app makes a PDF report on the phone from the survey. The surveyor shares it, and we do not store a copy of the PDF. A report can include the surveyor's name, photos, notes, answers and, if location is on, the place each photo was taken. It carries a link and QR code to the public verification page.</p>
+        <p>Location. The app asks permission to use the phone's location only while the app is in use. The surveyor can decline and still carry out the survey. The report then shows "Location: not recorded". The surveyor can turn location on later from the home screen or change it in the phone's settings.</p>
+        <p>Blocks. Inspections of blocks are recorded and sealed in the same way as other surveys, and the app can produce a report for a block as well as for a single survey.</p>
+
+        <h3>B. Client portal and organisation access (portal.sandford.digital)</h3>
+        <p>People in customer organisations are given accounts by invitation. There are four kinds of user: a Sandford Digital administrator; a surveyor, who sees only their own work; a team administrator, who allocates surveys and invites surveyors and managers into their own organisation; and management, who see an overview of the organisation's properties. Occupants of surveyed homes do not have accounts and cannot see anything in the portal. The portal's survey views are being introduced in stages, and at the time of writing the portal is a sign-in protected area. Organisation accounts use the following personal data:</p>
         <ul>
-          <li>Name and email address — for account authentication and communications</li>
-          <li>Organisation name and role — for access control and audit purposes</li>
-          <li>Login timestamps and activity logs — for security and compliance</li>
+          <li>Name (where given) and email address, for account authentication and communications</li>
+          <li>Organisation name, role, status and the products the organisation may use, for access control and audit purposes</li>
+          <li>Invitation records. An invitation is sent by email with a one-time link. We keep only a scrambled form of the link code</li>
+          <li>Login timestamps and activity logs, and the audit log of administration actions, for security and compliance</li>
         </ul>
 
-        <h3>C. INSIGHTS DASHBOARD — insights.sandford.digital</h3>
-        <p>The Insights platform presents anonymised regional aggregate data only. No personal data about individuals or identifiable operators is presented to third-party subscribers. Account data (name, email, organisation) is collected for authentication purposes only.</p>
+        <h3>C. Insights dashboard (insights.sandford.digital)</h3>
+        <p>The Insights site is for invited users. Account data (name, email, organisation) is collected for authentication only. It does not currently present survey data about individuals, and no customer's survey data is shown to another customer or to third parties. If we ever offer grouped figures or benchmarks, they will not identify individuals or customers, they will only use a customer's data where the customer's agreement with us allows it, and we will update this policy first.</p>
 
-        <h3>D. WEBSITE — sandford.digital</h3>
+        <h3>D. Websites (sandford.digital and the verification page)</h3>
         <ul>
-          <li>Contact form submissions — name, email, message — retained for 12 months</li>
-          <li>Demo request submissions — retained until the request is fulfilled or declined</li>
-          <li>Analytics data — anonymised page view data only. We do not use third-party tracking cookies.</li>
+          <li>Contact form: name, work email, organisation and message. The form sends them to our servers in Google Cloud, and a notification email is sent to us through our email provider. We keep submissions for 12 months. We also add an enquirer to our business contacts (part E)</li>
+          <li>To stop abuse, the form limits how often one network address can submit it. We keep only a scrambled form of the address for this</li>
+          <li>Visit logs: our hosting provider (Section 06) records ordinary server logs, such as IP address, browser type and the pages requested</li>
+          <li>We do not add analytics, advertising or tracking tools to the website. The self-assessment quiz runs in your browser and sends nothing to us</li>
+          <li>Pages of sandford.digital other than this one load a font from Google Fonts. This sends your IP address and browser details to Google when the page loads</li>
+          <li>Public verification page: when you scan a report's QR code or enter its reference, the page looks up the record. Your browser also contacts a public blockchain network service to read the published fingerprint. We keep ordinary technical logs of requests</li>
+        </ul>
+
+        <h3>E. Business contacts and email</h3>
+        <p>Sandford Digital is the controller of the business contact details we hold about people at housing associations, fleet and rail operators and other organisations we may contact about our services. These are names, work email addresses, phone numbers, organisation and role, and notes of our contact with them. They come from publicly available and business sources, and from people who contact us. They are held in our database in Google Cloud and in our email system (Google Workspace). We watch replies to our outreach emails so we can follow them up, and we may use an AI service (Anthropic) to help sort those replies, for example into interested, not interested or a question. You can ask us to stop contacting you at any time by replying to our email or writing to privacy@sandford.digital.</p>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>DATA TYPE</th>
+              <th>PURPOSE</th>
+              <th>LEGAL BASIS</th>
+              <th>RETENTION</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="draft-row">
+              <td>Business contacts and enquiries (including contact form submissions)</td>
+              <td>Tell organisations about our services, respond to enquiries and keep a record of our contact</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>[SOLICITOR TO COMPLETE]. Contact form submissions: 12 months</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>F. Other versions of the app</h3>
+        <p>Sandford Site Scan has other versions used with invited customers. They share the same sealing and public fingerprint, and the controller and processor roles in Section 01 apply to them too. They differ from the Housing version in these ways:</p>
+        <ul>
+          <li>Fleet (vehicle inspections): photos and video with sound, location, notes, and the vehicle registration (number plate) and vehicle identification number (VIN) where entered, for vehicle identification at handover. The registration and VIN are kept for six years from the date of the inspection</li>
+          <li>Rail (depot and asset inspections): photos and video with sound, location and notes</li>
+          <li>Film and TV Locations: photos and notes about a location. This version does not collect location data or require a sign-in, and the location name stays on the phone. Notes are free text, so the app tells the user not to type personal data into them</li>
+          <li>The face covering described in this policy is part of the Housing version only. Photos and video in the Fleet and Rail versions are not covered</li>
+          <li>Photos in the Fleet and Rail versions are checked by the AI service in Section 04 through a Sandford Digital server in Google Cloud, and a summary of each session is sent to that server so it can be shown in the client portal</li>
         </ul>
       </section>
 
       <!-- 4. How we use AI -->
       <section>
         <h2>04 // HOW WE USE AI VISION</h2>
-        <p>Sandford Site Scan uses Claude, an AI model developed by Anthropic, to assess asset condition from photos and video. A shrunk copy of each photo, after covering, and one still frame from each video clip are submitted to Anthropic's API over an encrypted connection (TLS). Anthropic's data processing terms apply to this transfer.</p>
+        <p>Sandford Site Scan uses Claude, an AI model developed by Anthropic, to give an advisory assessment of asset condition from photos and video. A shrunk copy of each photo, after covering, and one still frame from each video clip, also covered, are submitted to Anthropic's API over an encrypted connection (TLS), through our own server. Only the picture and the room name and area label are passed to Anthropic. We do not send the location, address, surveyor name or customer. Anthropic's data processing terms apply to this transfer.</p>
+        <p>The first frame of a video is put through the same face check as a photo before it is sent. If the check cannot run, the frame is not sent. The video itself is not sent to Anthropic.</p>
         <p>We instruct the AI model to:</p>
         <ul>
           <li>Assess the physical condition of the asset surface visible in the frame</li>
           <li>Identify damage, wear, or anomalies against a known baseline condition</li>
-          <li>Return a structured JSON assessment — severity, findings, confidence, recommendation</li>
-          <li>Ignore and not report on any human subjects, personal belongings, or non-asset objects</li>
+          <li>Return a structured JSON assessment: severity, findings, confidence, recommendation</li>
+          <li>Describe only observable physical conditions of the property, and make no comment on occupants, housekeeping, belongings or pets</li>
         </ul>
+        <p>We do not ask the AI to identify or describe people. People can still appear in a photo, because the face covering can miss a face and does not cover bodies, voices or other things that identify someone. The surveyor is instructed to keep faces, family photos, letters, screens and name labels out of frame, and the app shows this instruction before the first photo or video.</p>
+        <p>Anthropic keeps what we send under its own terms. At the time of writing, its published position is that it deletes inputs and outputs within 30 days of receipt, and may keep them for up to two years where its systems flag content as breaching its usage policy. We do not have a zero retention agreement with Anthropic. We do not keep the copy sent to Anthropic. We keep the AI assessment output as part of the survey record.</p>
         <div class="highlight-box">
-          <p>The AI model does not make autonomous decisions that have legal or significant effects on individuals. All assessments are reviewed by a human operator before any action is taken. Our use of AI is assistive, not determinative.</p>
+          <p>The AI result is advisory. It is shown to the surveyor and in the report as AI-assisted triage, not as an inspection finding, and it is not part of the tamper-evident record. We do not use it to make decisions about individuals. Decisions about repairs or action are made by the customer's staff. Our use of AI is assistive, not determinative.</p>
         </div>
       </section>
 
       <!-- 5. Offline processing -->
       <section>
         <h2>05 // OFFLINE PROCESSING</h2>
-        <p>Sandford Site Scan is designed for deployment in signal-dead environments including rail depots and underground facilities. When network connectivity is unavailable:</p>
+        <p>Sandford Site Scan is designed for use where there is little or no signal, including depots, basements and underground facilities. When network connectivity is unavailable:</p>
         <ul>
-          <li>Captured photos, video and metadata are stored locally on the device in a queue</li>
-          <li>No data is transmitted until a confirmed network connection is established</li>
-          <li>The local queue is automatically cleared once data has been confirmed as received by our backend</li>
+          <li>Photos and video are taken, faces are covered on the phone, and the photos, video and survey details are stored on the phone in a queue</li>
+          <li>The AI check cannot run offline. Photos are checked when the phone is back online, and until then the report shows them as not checked</li>
+          <li>Nothing is sent until the phone has a network connection. The queue then sends to our servers automatically</li>
+          <li>Survey data stays on the phone, in the app, after it has been sent, until the app is removed. There is no clear-data button in the app, and the app adds no encryption of its own on the phone (see Section 09)</li>
         </ul>
       </section>
 
@@ -268,30 +392,34 @@
           </thead>
           <tbody>
             <tr>
-              <td>Anthropic, Inc.</td>
-              <td>AI vision processing via Claude API</td>
-              <td>USA — Standard Contractual Clauses apply</td>
-            </tr>
-            <tr>
-              <td>Operator clients</td>
-              <td>Session results and audit trail for their own assets</td>
+              <td>Customers</td>
+              <td>Survey results, reports and audit trail for their own surveys</td>
               <td>UK / EU</td>
             </tr>
-                        <tr>
+            <tr>
+              <td>Anthropic</td>
+              <td>AI vision processing via the Claude API (Section 04)</td>
+              <td>United States</td>
+            </tr>
+            <tr>
               <td>Google Cloud Platform (Google)</td>
-              <td>Hosting and data storage: Firestore database and Cloud Storage (photos, videos and files)</td>
-              <td>UK / EU only</td>
+              <td>Hosting and data storage: Firestore database, Cloud Storage (photos, videos and files), our server functions, scheduled jobs, and the pages used to accept organisation invitations</td>
+              <td>United Kingdom (London region)</td>
             </tr>
-            <tr>
-              <td>Third-party intelligence subscribers</td>
-              <td>Anonymised regional aggregate data only — no personal data</td>
-              <td>UK / EU</td>
-            </tr>
-            
             <tr>
               <td>Google (Firebase Authentication and App Check)</td>
               <td>Sign-in of users and checking that requests come from the genuine app</td>
               <td>United States and other countries where Google operates</td>
+            </tr>
+            <tr>
+              <td>Google Workspace (Google)</td>
+              <td>Our email and documents, including mail to and from hello@sandford.digital and privacy@sandford.digital</td>
+              <td>United States and other countries where Google operates</td>
+            </tr>
+            <tr>
+              <td>Postmark</td>
+              <td>Sending email on our behalf, such as invitations to join an organisation and notifications of contact form enquiries. It receives the recipient's email address and the message</td>
+              <td>The provider is based in the United States</td>
             </tr>
             <tr>
               <td>Ideal Postcodes</td>
@@ -300,7 +428,7 @@
             </tr>
             <tr>
               <td>Apple and Google (speech recognition)</td>
-              <td>Turning dictated voice notes into text, where the surveyor uses dictation. The device operating system may send the audio to Apple or Google for this.</td>
+              <td>Turning dictated voice notes into text, where the surveyor uses dictation. The device operating system may send the audio to Apple or Google for this. We never receive the audio</td>
               <td>United States and other countries where Apple and Google operate</td>
             </tr>
             <tr>
@@ -310,8 +438,13 @@
             </tr>
             <tr>
               <td>Alchemy</td>
-              <td>Blockchain network access used to record the fingerprint (hash only) described in Track B. No photos, notes or other personal data are sent.</td>
+              <td>Blockchain network access used to publish the fingerprint (hash only) described in Track B. No photos, notes or other personal data are sent</td>
               <td>United States</td>
+            </tr>
+            <tr>
+              <td>Public blockchain (Arbitrum One) and its network services</td>
+              <td>The fingerprint is published on this public network, where anyone can read it. The verification page reads it through a public network service, which sees the visitor's IP address</td>
+              <td>Global, public</td>
             </tr>
             <tr>
               <td>Cloudflare</td>
@@ -320,33 +453,52 @@
             </tr>
             <tr>
               <td>Sentry</td>
-              <td>Error and crash reporting from our servers (technical error details, which may include identifiers such as a user or request ID)</td>
+              <td>Error and crash reporting from our servers (technical error details, which may include identifiers such as a user or request ID; we remove email addresses and IP addresses before sending)</td>
               <td>European Union</td>
+            </tr>
+            <tr>
+              <td>Netlify (website hosting provider)</td>
+              <td>Hosting of our websites and their server logs: IP address, browser and pages requested</td>
+              <td>Global network; the provider is based in the United States</td>
+            </tr>
+            <tr>
+              <td>Google Fonts (Google)</td>
+              <td>Supplying the font used on pages of sandford.digital, which sends the visitor's IP address to Google on each page load</td>
+              <td>United States and other countries where Google operates</td>
+            </tr>
+            <tr>
+              <td>Apple App Store and Google Play</td>
+              <td>The app listing, privacy declarations and download data, under their own terms</td>
+              <td>United States</td>
             </tr>
           </tbody>
         </table>
-        <p>We do not sell, rent, or trade personal data. We do not share personal data with advertisers or data brokers.</p>
+        <p>We do not sell, rent, or trade personal data. We do not share personal data with advertisers or data brokers. If we change a provider, we will update this table.</p>
+
+        <h3>International transfers</h3>
+        <p>Some of these providers are in the United States, or may handle data there. For these transfers we rely on each provider's standard terms for international transfers and, where the provider is certified, the UK data bridge (the UK extension to the EU-US Data Privacy Framework). We use each provider's standard online terms and have not negotiated separate agreements. [SOLICITOR TO REVIEW THIS WORDING]</p>
       </section>
 
       <!-- 7. Data retention -->
       <section>
         <h2>07 // HOW LONG WE KEEP DATA</h2>
 
-        <h3>TRACK A — EVIDENCE CONTENT</h3>
-        <p>Evidence content is the substance of a survey — photos, video, spatial and session metadata, and AI assessment output.</p>
+        <h3>TRACK A: EVIDENCE CONTENT</h3>
+        <p>Evidence content is the substance of a survey: photos, video, sound, notes and answers, location, spatial and session metadata, and AI assessment output.</p>
         <ul>
           <li>Survey records (photos, video and sound, notes and answers, location with height, address, session details and AI assessment output): six years from the date of the survey, then deleted</li>
-          <li>Audit log, device identifiers and technical logs — 90 days</li>
+          <li>Audit log, device identifiers and technical logs: 90 days</li>
           <li>Unredacted original photos are not kept. The covered photo is the record</li>
-          <li>Surveyor and portal account details and name: until the account is deleted, and not beyond six years from last use</li>
-          <li>Contact and demo request data — 12 months</li>
-          <li>Anonymised aggregate data — indefinitely (no personal data present)</li>
+          <li>Surveyor, organisation and portal account details and name: until the account is deleted, and not beyond six years from last use</li>
+          <li>Contact form submissions: 12 months. Business contacts: [SOLICITOR TO COMPLETE]</li>
+          <li>Data on the phone: stays in the app until the app is removed</li>
+          <li>Copies sent to Anthropic: held under Anthropic's own terms (Section 04)</li>
         </ul>
         <p>Survey records are kept for six years from the date of the survey. This matches the limitation period for most claims in England and Wales (Limitation Act 1980) and our customers' own record-keeping duties. As processor we follow the customer's written instruction, so a customer may instruct earlier deletion or return, within 30 days of termination. Records are deleted once the period ends, or sooner on instruction (see Section 08).</p>
 
-        <h3>TRACK B — TAMPER-EVIDENT FINGERPRINT</h3>
+        <h3>TRACK B: TAMPER-EVIDENT FINGERPRINT</h3>
         <div class="highlight-box">
-          <p>We create a tamper-evident fingerprint of every sealed survey record, a short code, and record that fingerprint permanently on a public blockchain at frequent intervals, currently nightly and expected to become more frequent, so a very recent record may not yet be anchored. A sealed record covers the photos, the location (including the phone's raw height reading) and time of capture, the surveyor's name, and the surveyor's answers and notes. The content stays in our own secure database; only the fingerprint is published, and no content or personal data is on the blockchain. What the fingerprint does is let someone, such as a regulator, an insurer or a court, check that the sealed record in our database has not been quietly changed since it was sealed, without having to take our word for it. If a value in the record is erased (for example, if someone asks us to remove their data), the fingerprint remains on the blockchain, but the record can no longer be verified against it. The fingerprint only works as proof for as long as the record it checks still exists unchanged.</p>
+          <p>We create a tamper-evident fingerprint of every sealed survey record, a short code. The fingerprints of the records sealed since the last run are combined into one short code, which we publish permanently on a public blockchain (Arbitrum One) at frequent intervals, currently nightly and expected to become more frequent, so a very recent record may not yet be published. A sealed record covers the photos, the location (including the phone's raw height reading) and time of capture, the surveyor's name, and the surveyor's answers and notes. The content stays in our own secure database; only the fingerprint is published, and no content or personal data is on the blockchain. What the fingerprint does is let someone, such as a regulator, an insurer or a court, check that the sealed record in our database has not been quietly changed since it was sealed, without having to take our word for it. If a value in the record is erased (for example, if someone asks us to remove their data), the fingerprint remains on the blockchain, but the record can no longer be verified against it. The fingerprint only works as proof for as long as the record it checks still exists unchanged.</p>
         </div>
       </section>
 
@@ -363,18 +515,25 @@
           <li><strong style="color:var(--text)">Objection</strong> — object to processing based on legitimate interests</li>
           <li><strong style="color:var(--text)">Automated decisions</strong> — you have the right not to be subject to solely automated decisions that have legal or significant effects on you</li>
         </ul>
-        <p>
-        To exercise any of these rights, contact us at <a href="mailto:privacy@sandford.digital" style="color:var(--blue);font-family:var(--font-mono)">privacy@sandford.digital</a>. We will respond within 30 days.</p>
-        <p>You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" style="color:var(--blue);font-family:var(--font-mono)">ico.org.uk</a>.</p>
+        <p>Data we control. For our own data (Section 01), contact us at <a href="mailto:privacy@sandford.digital" style="color:var(--blue);font-family:var(--font-mono)">privacy@sandford.digital</a>. We will reply within one month.</p>
+        <p>Survey data. Where a customer is the controller, your request should go to the customer. If you send it to us, we will pass it to the customer within 5 working days and tell you we have done so. Our records are organised by property, not by person, and we do not search them by person, so it helps to tell us the property and the approximate date of the survey.</p>
+        <p>Deleting an account. A surveyor can ask for their account and data to be deleted from the home screen of the app ("Request deletion of my account and data"), or by emailing <a href="mailto:hello@sandford.digital" style="color:var(--blue);font-family:var(--font-mono)">hello@sandford.digital</a> or privacy@sandford.digital. We will reply within one month, saying what we will delete, what we have to keep and why, and when. We may have to keep survey records that you helped create, including your name as recorded in them, because they are sealed evidence your organisation relies on (kept for six years from the date of the survey), and the fingerprints of those records that are published on a public blockchain, which hold no personal details and cannot be changed (see Section 07).</p>
+        <p>Location. You can decline location in the app, and turn it off again in the phone's settings.</p>
+        <h3>Complaints</h3>
+        <p>If you are unhappy with how we have handled your personal data, please tell us at privacy@sandford.digital. We will acknowledge your complaint within 30 days and tell you what we find. You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" style="color:var(--blue);font-family:var(--font-mono)">ico.org.uk</a>.</p>
       </section>
 
       <!-- 9. Security -->
       <section>
         <h2>09 // SECURITY</h2>
         <ul>
-          <li>All data in transit is encrypted using TLS 1.2 or higher</li>
-          <li>API keys and credentials are never stored in client-side code or transmitted in plain text</li>
+          <li>Data is encrypted in transit using TLS</li>
+          <li>Data held in Google Cloud is encrypted at rest by Google. The app adds no encryption of its own on the phone, so data stored on the phone relies on the phone's own protections</li>
+          <li>Our servers check the surveyor's sign-in on every request. Access is controlled by organisation and role. We are moving every account into an organisation so that each customer's survey data is kept separate from other customers', and accounts created before that move are being transferred</li>
+          <li>We use Google's App Check to check that requests come from the genuine app. It is currently in monitoring mode, which records requests that fail the check but does not yet refuse them. We also limit repeated requests</li>
+          <li>Secret keys for our servers, including the key for the AI service, are held in Google's secret storage on the server, not in the app.</li>
           <li>Access to client data is restricted to authorised personnel only</li>
+          <li>We keep an audit log of administration actions</li>
           <li>We conduct regular security reviews of our infrastructure and codebase</li>
         </ul>
       </section>
@@ -382,14 +541,15 @@
       <!-- 10. Cookies -->
       <section>
         <h2>10 // COOKIES</h2>
-        <p>sandford.digital uses no third-party tracking cookies. We use a single session cookie for authentication on the client portal. This cookie is strictly necessary for the portal to function and does not require consent under PECR.</p>
-        <p>The Sandford Site Scan mobile application does not use cookies.</p>
+        <p>sandford.digital sets no cookies and uses no analytics or advertising cookies. Pages of sandford.digital other than this one load a font from Google Fonts, which is not a cookie but sends your IP address to Google (see Section 06).</p>
+        <p>Our sign-in pages (the client portal at portal.sandford.digital, insights.sandford.digital, and the organisation pages hosted by Google Firebase) use a cookie or similar browser storage only to keep you signed in. This is strictly necessary for the pages to work and does not require consent under PECR.</p>
+        <p>The Sandford Site Scan mobile application does not use cookies. The app stores data on the phone, as described in Section 05.</p>
       </section>
 
       <!-- 11. Changes -->
       <section>
         <h2>11 // CHANGES TO THIS POLICY</h2>
-        <p>We will update this policy as our products and legal obligations evolve. Material changes will be communicated to active clients by email with 30 days notice before taking effect. The version number and last updated date at the top of this page will always reflect the current version.</p>
+        <p>We will update this policy as our products and legal obligations evolve. Material changes will be communicated to active customers by email with 30 days notice before taking effect. The version number and last updated date at the top of this page will always reflect the current version.</p>
       </section>
 
       <!-- 12. Contact -->
@@ -398,8 +558,8 @@
         <div class="contact-box">
           <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">DATA PROTECTION ENQUIRIES</strong></p>
           <p style="margin-top:16px">Sandford Digital Limited</p>
-                    <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
-          <p style="margin-top:16px;font-size:12px;color:var(--dim)">For general enquiries: <a href="mailto:hello@sandford.digital" style="color:var(--blue);font-family:var(--font-mono);font-size:12px">hello@sandford.digital</a></p>
+          <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
+          <p style="margin-top:16px;font-size:12px;color:var(--dim)">For general enquiries and account deletion requests: <a href="mailto:hello@sandford.digital" style="color:var(--blue);font-family:var(--font-mono);font-size:12px">hello@sandford.digital</a></p>
         </div>
       </section>
 
