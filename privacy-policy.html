@@ -110,8 +110,8 @@
           <p>Sandford Site Scan is designed to inspect <strong>assets</strong>, not people. Our system is built to process the condition of physical infrastructure — train carriages, fleet vehicles, facilities — not to identify, track, or profile individuals. Privacy protection is enforced in our capture pipeline before any image reaches an AI model. This is not a policy position. It is an architectural constraint.</p>
         </div>
         <ul>
-          <li>People detected in captured frames are automatically filtered before AI processing</li>
-          <li>We do not store raw video or images beyond the active session window unless explicitly configured by the operator</li>
+          <li>Where the app finds a face in a photo, it covers the face with a solid block on the phone before the photo is saved or sent. The surveyor can also cover a letter, screen or name label by hand. The original photo is not kept. This reduces the risk that people appear in stored photos; it does not remove it</li>
+          <li>Photos taken in a survey are stored, with faces covered, as part of the survey record. Unredacted originals of photos are not kept. Video clips and their sound are stored as recorded and are not covered</li>
           <li>We do not sell personal data to third parties under any circumstances</li>
           <li>Aggregate trend intelligence is anonymised at regional level — operator identity is never included</li>
           <li>You have the right to access, correct, and erase any personal data we hold about you</li>
@@ -135,11 +135,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Camera frames (Base64)</td>
+            <tr class="draft-row">
+              <td>Photos (faces covered on the phone) and video clips (with sound, not covered)</td>
               <td>Asset condition assessment via AI vision</td>
               <td>Legitimate interests of the operator</td>
-              <td>Transient — processed and discarded within session unless operator configures retention</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+            </tr>
+            <tr class="draft-row">
+              <td>Photo covering: where a face is found on the phone, and areas the surveyor covers by hand</td>
+              <td>Cover people and personal items before a photo is saved or sent</td>
+              <td>[SOLICITOR TO COMPLETE]</td>
+              <td>The original photo is not kept</td>
             </tr>
             <tr>
               <td>Spatial anchor metadata</td>
@@ -151,13 +157,13 @@
               <td>Session ID and timestamp</td>
               <td>Audit trail and dispute resolution</td>
               <td>Legitimate interests / legal obligation</td>
-              <td>90 days by default. Configurable per operator.</td>
+              <td>Six years from the date of the survey</td>
             </tr>
             <tr>
               <td>AI assessment output</td>
               <td>Damage finding and severity scoring</td>
               <td>Legitimate interests</td>
-              <td>90 days by default. Configurable per operator.</td>
+              <td>Six years from the date of the survey</td>
             </tr>
             <tr>
               <td>License plate (Fleet regime)</td>
@@ -173,7 +179,7 @@
               <td>[SOLICITOR TO COMPLETE]</td>
             </tr>
             <tr class="draft-row">
-              <td>Altitude and vertical accuracy (once synced to our servers)</td>
+              <td>Altitude and vertical accuracy, recorded and sealed with the location of each photo or video</td>
               <td>[SOLICITOR TO COMPLETE]</td>
               <td>[SOLICITOR TO COMPLETE]</td>
               <td>[SOLICITOR TO COMPLETE]</td>
@@ -200,7 +206,7 @@
         </table>
 
         <div class="highlight-box">
-          <p><strong style="color:var(--text)">Person filtering:</strong> Prior to any frame being submitted to the AI assessment pipeline, a pre-filter is applied to detect and exclude human subjects. Faces and identifiable personal characteristics are not processed by our AI models. No biometric data is collected, stored, or inferred.</p>
+          <p><strong style="color:var(--text)">Photo covering:</strong> Before a photo is saved, fingerprinted or sent for AI checking, the app looks for faces on the phone and covers each one with a solid block. The surveyor can also draw a box over a letter, screen or name label. The original photo is not kept; the covered photo is what is stored and fingerprinted. This reduces the risk that people appear; it does not remove it. A face can be missed, people can be recognised from other things in a picture, and video clips and their sound are not covered. The app does not cover text automatically. Face detection finds where a face is, never who it is, and no face template or other biometric data is created or kept.</p>
         </div>
 
         <h3>B. CLIENT PORTAL — portal.sandford.digital</h3>
@@ -225,7 +231,7 @@
       <!-- 4. How we use AI -->
       <section>
         <h2>04 // HOW WE USE AI VISION</h2>
-        <p>Sandford Site Scan uses Claude, an AI model developed by Anthropic, to assess asset condition from camera frames. Frames are submitted to Anthropic's API over an encrypted connection. Anthropic's data processing terms apply to this transfer.</p>
+        <p>Sandford Site Scan uses Claude, an AI model developed by Anthropic, to assess asset condition from photos and video. A shrunk copy of each photo, after covering, and one still frame from each video clip are submitted to Anthropic's API over an encrypted connection (TLS). Anthropic's data processing terms apply to this transfer.</p>
         <p>We instruct the AI model to:</p>
         <ul>
           <li>Assess the physical condition of the asset surface visible in the frame</li>
@@ -243,10 +249,9 @@
         <h2>05 // OFFLINE PROCESSING</h2>
         <p>Sandford Site Scan is designed for deployment in signal-dead environments including rail depots and underground facilities. When network connectivity is unavailable:</p>
         <ul>
-          <li>Captured frames and metadata are stored locally on the device in an encrypted queue</li>
+          <li>Captured photos, video and metadata are stored locally on the device in a queue</li>
           <li>No data is transmitted until a confirmed network connection is established</li>
           <li>The local queue is automatically cleared once data has been confirmed as received by our backend</li>
-          <li>Locally stored data is protected by the device's native encryption and access controls</li>
         </ul>
       </section>
 
@@ -328,20 +333,20 @@
         <h2>07 // HOW LONG WE KEEP DATA</h2>
 
         <h3>TRACK A — EVIDENCE CONTENT</h3>
-        <p>Evidence content is the substance of a survey — captured frames, spatial and session metadata, and AI assessment output.</p>
+        <p>Evidence content is the substance of a survey — photos, video, spatial and session metadata, and AI assessment output.</p>
         <ul>
-          <li>Session audit trails — 90 days by default, configurable per operator contract</li>
-          <li>AI assessment outputs — 90 days by default, configurable per operator contract</li>
-          <li>Raw frame data — transient, not retained beyond active processing unless explicitly configured</li>
-          <li>Portal account data — duration of contract plus 12 months</li>
+          <li>Survey records (photos, video and sound, notes and answers, location with height, address, session details and AI assessment output): six years from the date of the survey, then deleted</li>
+          <li>Audit log, device identifiers and technical logs — 90 days</li>
+          <li>Unredacted original photos are not kept. The covered photo is the record</li>
+          <li>Surveyor and portal account details and name: until the account is deleted, and not beyond six years from last use</li>
           <li>Contact and demo request data — 12 months</li>
           <li>Anonymised aggregate data — indefinitely (no personal data present)</li>
         </ul>
-        <p>Where an operator configures a longer retention period than the 90-day default, this is typically to preserve evidence for as long as it may be needed to defend or bring a legal claim — under the Limitation Act 1980, up to 6 years for most claims founded on a contract (England and Wales). Evidence content retained on this basis is deleted once that period ends, or sooner on request (see Section 08).</p>
+        <p>Survey records are kept for six years from the date of the survey. This matches the limitation period for most claims in England and Wales (Limitation Act 1980) and our customers' own record-keeping duties. As processor we follow the customer's written instruction, so a customer may instruct earlier deletion or return, within 30 days of termination. Records are deleted once the period ends, or sooner on instruction (see Section 08).</p>
 
         <h3>TRACK B — TAMPER-EVIDENT FINGERPRINT</h3>
         <div class="highlight-box">
-          <p>We create a tamper-proof fingerprint of every survey — a short code, not the photos themselves — and record that fingerprint permanently on a public blockchain. Your actual photos, notes and other evidence stay in our own secure database; the blockchain never sees them. What the fingerprint does is let someone — a regulator, an insurer, a court — check that the photos and notes in our database haven't been quietly changed since the day they were captured, without having to just take our word for it. If those photos and notes are ever deleted (for example, if someone asks us to remove their data), the fingerprint is still sitting on the blockchain, but there's nothing left for it to check against — so it stops meaning anything. The fingerprint only works as proof for as long as the real evidence it's checking still exists.</p>
+          <p>We create a tamper-evident fingerprint of every sealed survey record, a short code, and record that fingerprint permanently on a public blockchain at frequent intervals, currently nightly and expected to become more frequent, so a very recent record may not yet be anchored. A sealed record covers the photos, the location (including the phone's raw height reading) and time of capture, the surveyor's name, and the surveyor's answers and notes. The content stays in our own secure database; only the fingerprint is published, and no content or personal data is on the blockchain. What the fingerprint does is let someone, such as a regulator, an insurer or a court, check that the sealed record in our database has not been quietly changed since it was sealed, without having to take our word for it. If a value in the record is erased (for example, if someone asks us to remove their data), the fingerprint remains on the blockchain, but the record can no longer be verified against it. The fingerprint only works as proof for as long as the record it checks still exists unchanged.</p>
         </div>
       </section>
 
@@ -368,7 +373,6 @@
         <h2>09 // SECURITY</h2>
         <ul>
           <li>All data in transit is encrypted using TLS 1.2 or higher</li>
-          <li>Local device storage is encrypted using native device encryption</li>
           <li>API keys and credentials are never stored in client-side code or transmitted in plain text</li>
           <li>Access to client data is restricted to authorised personnel only</li>
           <li>We conduct regular security reviews of our infrastructure and codebase</li>
