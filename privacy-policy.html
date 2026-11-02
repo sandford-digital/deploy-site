@@ -10,60 +10,60 @@
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
-      --bg: #0f172a; --surface: #1e293b; --border: #334155;
-      --text: #f1f5f9; --muted: #94a3b8; --dim: #475569;
-      --blue: #005FFF; --green: #22c55e;
-      --font-mono: 'Courier New', Courier, monospace;
+      --bg: #0f172a; --surface: #1e293b; --border: #475569;
+      --text: #f8fafc; --muted: #d5dde8; --dim: #b4c0d0;
+      --blue: #005FFF; --link: #8ab4ff; --green: #22c55e;
       --font-sans: Arial, Helvetica, sans-serif;
       --radius: 8px;
     }
-    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
-    .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+    body { background: var(--bg); color: var(--text); font-family: var(--font-sans); font-size: 18px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+    .container { max-width: 820px; margin: 0 auto; padding: 0 24px; }
+    a { color: var(--link); text-decoration: underline; text-underline-offset: 3px; }
+    a:hover { color: var(--text); }
+    a:focus-visible { outline: 3px solid var(--link); outline-offset: 3px; border-radius: 2px; }
 
     nav { background: var(--surface); border-bottom: 1px solid var(--border); padding: 16px 0; }
-    .nav-inner { display: flex; align-items: center; justify-content: space-between; }
-    .nav-brand { font-family: var(--font-mono); font-size: 13px; font-weight: 700; letter-spacing: 3px; color: var(--text); text-decoration: none; }
-    .nav-back { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; color: var(--muted); text-decoration: none; }
-    .nav-back:hover { color: var(--text); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .nav-brand { font-size: 18px; font-weight: 700; color: var(--text); text-decoration: none; }
+    .nav-back { font-size: 17px; color: var(--link); }
 
-    .hero { padding: 64px 0 48px; border-bottom: 1px solid var(--border); }
-    .hero-label { font-family: var(--font-mono); font-size: 10px; letter-spacing: 4px; color: var(--blue); margin-bottom: 16px; }
-    .hero-title { font-family: var(--font-mono); font-size: clamp(24px, 4vw, 40px); font-weight: 700; letter-spacing: -0.5px; margin-bottom: 16px; }
-    .hero-meta { font-family: var(--font-mono); font-size: 11px; color: var(--dim); letter-spacing: 1px; line-height: 2; }
+    .hero { padding: 56px 0 44px; border-bottom: 1px solid var(--border); }
+    .hero-label { font-size: 17px; font-weight: 700; color: var(--link); margin-bottom: 12px; }
+    .hero-title { font-size: clamp(32px, 5vw, 46px); font-weight: 700; line-height: 1.2; margin-bottom: 20px; }
+    .hero-meta { font-size: 17px; color: var(--muted); line-height: 1.8; }
 
-    .content { padding: 64px 0; }
+    .content { padding: 56px 0; }
     .content section { margin-bottom: 56px; }
-    .content h2 { font-family: var(--font-mono); font-size: 14px; font-weight: 700; letter-spacing: 2px; color: var(--text); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
-    .content h3 { font-family: var(--font-mono); font-size: 12px; font-weight: 700; letter-spacing: 1px; color: var(--muted); margin: 24px 0 12px; text-transform: uppercase; }
-    .content p { color: var(--muted); margin-bottom: 16px; font-size: 15px; }
-    .content ul { color: var(--muted); margin: 0 0 16px 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 10px; }
-    .content ul li { display: flex; align-items: flex-start; gap: 12px; font-size: 15px; }
-    .content ul li::before { content: '→'; color: var(--blue); flex-shrink: 0; margin-top: 2px; }
+    .content h2 { font-size: 26px; font-weight: 700; line-height: 1.3; color: var(--text); margin-bottom: 20px; padding-bottom: 12px; border-bottom: 1px solid var(--border); }
+    .content h3 { font-size: 20px; font-weight: 700; color: var(--text); margin: 28px 0 12px; }
+    .content p { color: var(--muted); margin-bottom: 16px; font-size: 18px; }
+    .content ul { color: var(--muted); margin: 0 0 16px 0; padding-left: 0; list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .content ul li { display: flex; align-items: flex-start; gap: 12px; font-size: 18px; }
+    .content ul li::before { content: '→'; color: var(--link); flex-shrink: 0; }
 
-    .highlight-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--blue); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
-    .highlight-box p { color: var(--muted); font-size: 14px; margin: 0; }
+    .highlight-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--link); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .highlight-box p { color: var(--muted); font-size: 18px; margin: 0; }
 
-    .warning-box { background: var(--surface); border: 1px solid var(--border); border-left: 3px solid var(--green); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
-    .warning-box p { color: var(--muted); font-size: 14px; margin: 0; }
+    .warning-box { background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--green); border-radius: var(--radius); padding: 20px 24px; margin: 24px 0; }
+    .warning-box p { color: var(--muted); font-size: 18px; margin: 0; }
 
-    .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 13px; }
-    .data-table th { font-family: var(--font-mono); font-size: 10px; letter-spacing: 2px; color: var(--dim); text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+    .data-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 16px; }
+    .data-table th { font-size: 16px; font-weight: 700; color: var(--text); text-align: left; padding: 12px 16px; border-bottom: 2px solid var(--border); }
     .data-table td { color: var(--muted); padding: 12px 16px; border-bottom: 1px solid var(--border); vertical-align: top; line-height: 1.6; }
     .data-table tr:last-child td { border-bottom: none; }
 
-
     .contact-box { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 28px; margin-top: 24px; }
-    .contact-box p { color: var(--muted); font-size: 14px; margin-bottom: 8px; }
-    .contact-box a { color: var(--blue); text-decoration: none; font-family: var(--font-mono); font-size: 13px; }
+    .contact-box p { color: var(--muted); font-size: 18px; margin-bottom: 8px; }
 
     @media (max-width: 600px) {
       .container { padding: 0 16px; }
+      .content ul li, .content p, .highlight-box p, .warning-box p, .contact-box p { font-size: 17px; }
+      .data-table, .data-table th, .data-table td { font-size: 15px; }
       .data-table th, .data-table td { padding: 10px 6px; overflow-wrap: anywhere; }
-      .data-table th { letter-spacing: 1px; }
     }
 
     footer { border-top: 1px solid var(--border); padding: 32px 0; margin-top: 64px; }
-    .footer-legal { font-family: var(--font-mono); font-size: 10px; color: var(--dim); letter-spacing: 0.5px; line-height: 2; }
+    .footer-legal { font-size: 16px; color: var(--muted); line-height: 1.8; }
   </style>
 </head>
 <body>
@@ -71,15 +71,15 @@
   <nav>
     <div class="container">
       <div class="nav-inner">
-        <a href="https://sandford.digital" class="nav-brand">SANDFORD DIGITAL</a>
-        <a href="https://sandford.digital" class="nav-back">← BACK TO SITE</a>
+        <a href="https://sandford.digital" class="nav-brand">Sandford Digital</a>
+        <a href="https://sandford.digital" class="nav-back">← Back to site</a>
       </div>
     </div>
   </nav>
 
   <div class="hero">
     <div class="container">
-      <p class="hero-label">LEGAL</p>
+      <p class="hero-label">Legal</p>
       <h1 class="hero-title">Privacy Policy</h1>
       <div class="hero-meta">
         Sandford Digital Limited<br/>
@@ -98,7 +98,7 @@
 
       <!-- 1. Who we are -->
       <section>
-        <h2>01 // WHO WE ARE</h2>
+        <h2>01. Who we are</h2>
         <p>Sandford Digital Limited ("Sandford Digital", "we", "us", "our") is a company registered in England and Wales (company number 17400537). We handle personal data in two different roles.</p>
         <ul>
           <li>Customer survey data. Our customers are the organisations that commission surveys using Sandford Site Scan, for example housing associations, councils and managing agents (each is a "customer" in this policy). For the photos, video, sound, notes, answers and other survey records made for a customer, the customer is the controller and Sandford Digital is its processor. We handle that data on the customer's instructions. If you appear in a survey, for example as an occupant, please contact the customer first.</li>
@@ -107,7 +107,7 @@
         <p>Handover is a separate service from Sandford Digital that runs on some of the same servers. It has its own privacy notice, and this policy does not cover it.</p>
         <p>We can be contacted at:</p>
         <div class="contact-box">
-          <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">SANDFORD DIGITAL LIMITED</strong></p>
+          <p><strong style="color:var(--text);font-size:19px;">Sandford Digital Limited</strong></p>
           <p>Company number: 17400537</p>
           <p>Registered office: 10 London Lane, London E8 3PR</p>
           <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
@@ -117,7 +117,7 @@
 
       <!-- 2. The short version -->
       <section>
-        <h2>02 // THE SHORT VERSION</h2>
+        <h2>02. The short version</h2>
         <div class="warning-box">
           <p>Sandford Site Scan is designed to inspect <strong>assets</strong> such as buildings, vehicles and rail equipment, not people. It is not designed to identify, track or profile individuals. We take steps to reduce the risk that people appear in survey photos, but we cannot remove that risk: people, voices and personal items can still appear in photos, video and sound. This policy explains what we do about that.</p>
         </div>
@@ -134,7 +134,7 @@
 
       <!-- 3. What data we collect -->
       <section>
-        <h2>03 // WHAT DATA WE COLLECT AND WHY</h2>
+        <h2>03. What data we collect and why</h2>
 
         <h3>A. Sandford Site Scan mobile application</h3>
         <p>The Sandford Site Scan app is a professional tool. Accounts are issued by invitation to surveyors who work for a customer, and there is no sign-up in the app. The tables below describe the Housing version of the app, which is the version released through the app stores. It records surveys of individual homes and inspections of blocks (communal areas). The kinds of data are the same for both. Other versions are described in part F.</p>
@@ -143,10 +143,10 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>DATA TYPE</th>
-              <th>PURPOSE</th>
-              <th>LEGAL BASIS</th>
-              <th>RETENTION</th>
+              <th>Data type</th>
+              <th>Purpose</th>
+              <th>Legal basis</th>
+              <th>Retention</th>
             </tr>
           </thead>
           <tbody>
@@ -249,10 +249,10 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>DATA TYPE</th>
-              <th>PURPOSE</th>
-              <th>LEGAL BASIS</th>
-              <th>RETENTION</th>
+              <th>Data type</th>
+              <th>Purpose</th>
+              <th>Legal basis</th>
+              <th>Retention</th>
             </tr>
           </thead>
           <tbody>
@@ -331,10 +331,10 @@
         <table class="data-table">
           <thead>
             <tr>
-              <th>DATA TYPE</th>
-              <th>PURPOSE</th>
-              <th>LEGAL BASIS</th>
-              <th>RETENTION</th>
+              <th>Data type</th>
+              <th>Purpose</th>
+              <th>Legal basis</th>
+              <th>Retention</th>
             </tr>
           </thead>
           <tbody>
@@ -366,7 +366,7 @@
 
       <!-- 4. How we use AI -->
       <section>
-        <h2>04 // HOW WE USE AI VISION</h2>
+        <h2>04. How we use AI vision</h2>
         <p>Sandford Site Scan uses Claude, an AI model developed by Anthropic, to give an advisory assessment of asset condition from photos and video. A shrunk copy of each photo, after covering, and one still frame from each video clip, also covered, are submitted to Anthropic's API over an encrypted connection (TLS), through our own server. Only the picture and the room name and area label are passed to Anthropic. We do not send the location, address, surveyor name or customer. Anthropic's data processing terms apply to this transfer.</p>
         <p>The first frame of a video is put through the same face check as a photo before it is sent. If the check cannot run, the frame is not sent. The video itself is not sent to Anthropic.</p>
         <p>We instruct the AI model to:</p>
@@ -386,7 +386,7 @@
 
       <!-- 5. Offline processing -->
       <section>
-        <h2>05 // OFFLINE PROCESSING</h2>
+        <h2>05. Offline processing</h2>
         <p>Sandford Site Scan is designed for use where there is little or no signal, including depots, basements and underground facilities. When network connectivity is unavailable:</p>
         <ul>
           <li>Photos and video are taken, faces are covered on the phone, and the photos, video and survey details are stored on the phone in a queue</li>
@@ -398,13 +398,13 @@
 
       <!-- 6. Data sharing -->
       <section>
-        <h2>06 // WHO WE SHARE DATA WITH</h2>
+        <h2>06. Who we share data with</h2>
         <table class="data-table">
           <thead>
             <tr>
-              <th>RECIPIENT</th>
-              <th>PURPOSE</th>
-              <th>LOCATION</th>
+              <th>Recipient</th>
+              <th>Purpose</th>
+              <th>Location</th>
             </tr>
           </thead>
           <tbody>
@@ -498,9 +498,9 @@
 
       <!-- 7. Data retention -->
       <section>
-        <h2>07 // HOW LONG WE KEEP DATA</h2>
+        <h2>07. How long we keep data</h2>
 
-        <h3>TRACK A: EVIDENCE CONTENT</h3>
+        <h3>Track A: evidence content</h3>
         <p>Evidence content is the substance of a survey: photos, video, sound, notes and answers, location, spatial and session metadata, and AI assessment output.</p>
         <ul>
           <li>Survey records (photos, video and sound, notes and answers, location with height, address, session details and AI assessment output) are kept for six years from the date of the survey, then deleted. We review our records at least once a year to find any that are due for deletion</li>
@@ -516,7 +516,7 @@
         <p>Survey records are kept for six years from the date of the survey. This matches the limitation period for most claims in England and Wales (Limitation Act 1980) and our customers' own record-keeping duties. As processor we follow the customer's written instruction, so a customer may instruct earlier deletion or return, within 30 days of termination. Records are deleted after the period ends, or sooner on instruction (see Section 08). Where a customer asks us to delete or return records, we will do so within one month of the request.</p>
         <p>Backups and recovery features of our hosting provider may keep deleted data for up to 7 days after deletion.</p>
 
-        <h3>TRACK B: TAMPER-EVIDENT FINGERPRINT</h3>
+        <h3>Track B: tamper-evident fingerprint</h3>
         <div class="highlight-box">
           <p>We create a tamper-evident fingerprint of every sealed survey record, a short code. The fingerprints of the records sealed since the last run are combined into one short code, which we publish permanently on a public blockchain (Arbitrum One) at frequent intervals, currently nightly and expected to become more frequent, so a very recent record may not yet be published. A sealed record covers the photos, the location (including the phone's raw height reading) and time of capture, the surveyor's name, and the surveyor's answers and notes. The content stays in our own secure database; only the fingerprint is published, and no content or personal data is on the blockchain. What the fingerprint does is let someone, such as a regulator, an insurer or a court, check that the sealed record in our database has not been quietly changed since it was sealed, without having to take our word for it. If a value in the record is erased (for example, if someone asks us to remove their data), the fingerprint remains on the blockchain, but the record can no longer be verified against it. The fingerprint only works as proof for as long as the record it checks still exists unchanged.</p>
         </div>
@@ -524,7 +524,7 @@
 
       <!-- 8. Your rights -->
       <section>
-        <h2>08 // YOUR RIGHTS</h2>
+        <h2>08. Your rights</h2>
         <p>Under UK GDPR and the Data Protection Act 2018, you have the following rights:</p>
         <ul>
           <li><strong style="color:var(--text)">Access</strong> — request a copy of personal data we hold about you</li>
@@ -535,18 +535,18 @@
           <li><strong style="color:var(--text)">Objection</strong> — object to processing based on legitimate interests</li>
           <li><strong style="color:var(--text)">Automated decisions</strong> — you have the right not to be subject to solely automated decisions that have legal or significant effects on you</li>
         </ul>
-        <p>Data we control. For our own data (Section 01), contact us at <a href="mailto:privacy@sandford.digital" style="color:var(--blue);font-family:var(--font-mono)">privacy@sandford.digital</a>. We will reply within one month.</p>
+        <p>Data we control. For our own data (Section 01), contact us at <a href="mailto:privacy@sandford.digital" style="color:var(--link);">privacy@sandford.digital</a>. We will reply within one month.</p>
         <p>Survey data. Where a customer is the controller, your request should go to the customer. If you send it to us, we will pass it to the customer within 5 working days and tell you we have done so. Our records are organised by property, not by person, and we do not search them by person, so it helps to tell us the property and the approximate date of the survey.</p>
         <h3>Deleting your account and data</h3>
-        <p>To ask for your account or your data to be deleted, email <a href="mailto:privacy@sandford.digital" style="color:var(--blue);font-family:var(--font-mono)">privacy@sandford.digital</a>. We will reply within one month, saying what we will delete, what we have to keep and why, and when. We may have to keep survey records that you helped create, including your name as recorded in them, because they are sealed evidence your organisation relies on (kept for six years from the date of the survey), and the fingerprints of those records that are published on a public blockchain, which hold no personal details and cannot be changed (see Section 07).</p>
+        <p>To ask for your account or your data to be deleted, email <a href="mailto:privacy@sandford.digital" style="color:var(--link);">privacy@sandford.digital</a>. We will reply within one month, saying what we will delete, what we have to keep and why, and when. We may have to keep survey records that you helped create, including your name as recorded in them, because they are sealed evidence your organisation relies on (kept for six years from the date of the survey), and the fingerprints of those records that are published on a public blockchain, which hold no personal details and cannot be changed (see Section 07).</p>
         <p>Location. You can decline location in the app, and turn it off again in the phone's settings.</p>
         <h3>Complaints</h3>
-        <p>If you are unhappy with how we have handled your personal data, please tell us at privacy@sandford.digital. We will acknowledge your complaint within 30 days and tell you what we find. You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" style="color:var(--blue);font-family:var(--font-mono)">ico.org.uk</a>.</p>
+        <p>If you are unhappy with how we have handled your personal data, please tell us at privacy@sandford.digital. We will acknowledge your complaint within 30 days and tell you what we find. You also have the right to lodge a complaint with the Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" style="color:var(--link);">ico.org.uk</a>.</p>
       </section>
 
       <!-- 9. Security -->
       <section>
-        <h2>09 // SECURITY</h2>
+        <h2>09. Security</h2>
         <ul>
           <li>Data is encrypted in transit using TLS</li>
           <li>Data held in Google Cloud is encrypted at rest by Google. The app adds no encryption of its own on the phone, so data stored on the phone relies on the phone's own protections</li>
@@ -561,7 +561,7 @@
 
       <!-- 10. Cookies -->
       <section>
-        <h2>10 // COOKIES</h2>
+        <h2>10. Cookies</h2>
         <p>sandford.digital sets no cookies and uses no analytics or advertising cookies. Pages of sandford.digital other than this one load a font from Google Fonts, which is not a cookie but sends your IP address to Google (see Section 06).</p>
         <p>Our sign-in pages (the client portal at portal.sandford.digital, insights.sandford.digital, and the organisation pages hosted by Google Firebase) use a cookie or similar browser storage only to keep you signed in. This is strictly necessary for the pages to work and does not require consent under PECR.</p>
         <p>The Sandford Site Scan mobile application does not use cookies, and it contains no advertising and no analytics or crash-reporting tools. The app stores data on the phone, as described in Section 05.</p>
@@ -569,19 +569,19 @@
 
       <!-- 11. Changes -->
       <section>
-        <h2>11 // CHANGES TO THIS POLICY</h2>
+        <h2>11. Changes to this policy</h2>
         <p>We will update this policy as our products and legal obligations evolve. Material changes will be communicated to active customers by email with 30 days notice before taking effect. The version number and last updated date at the top of this page will always reflect the current version.</p>
       </section>
 
       <!-- 12. Contact -->
       <section>
-        <h2>12 // CONTACT US</h2>
+        <h2>12. Contact us</h2>
         <div class="contact-box">
-          <p><strong style="color:var(--text);font-family:var(--font-mono);font-size:11px;letter-spacing:2px;">DATA PROTECTION ENQUIRIES</strong></p>
+          <p><strong style="color:var(--text);font-size:19px;">Data protection enquiries</strong></p>
           <p style="margin-top:16px">Sandford Digital Limited, company number 17400537</p>
           <p>Registered office: 10 London Lane, London E8 3PR</p>
           <p>Email: <a href="mailto:privacy@sandford.digital">privacy@sandford.digital</a></p>
-          <p style="margin-top:16px;font-size:12px;color:var(--dim)">For general enquiries: <a href="mailto:hello@sandford.digital" style="color:var(--blue);font-family:var(--font-mono);font-size:12px">hello@sandford.digital</a></p>
+          <p style="margin-top:16px;font-size:18px;color:var(--muted)">For general enquiries: <a href="mailto:hello@sandford.digital" style="color:var(--link);font-size:18px">hello@sandford.digital</a></p>
         </div>
       </section>
 
@@ -593,11 +593,11 @@
       <div class="footer-legal">
         © 2026 Sandford Digital Limited. All rights reserved.<br/>
         <br/>
-        <a href="https://sandford.digital" style="color:var(--blue);text-decoration:none">sandford.digital</a>
+        <a href="https://sandford.digital" style="color:var(--link);text-decoration:none">sandford.digital</a>
         &nbsp;//&nbsp;
-        <a href="https://portal.sandford.digital" style="color:var(--blue);text-decoration:none">portal.sandford.digital</a>
+        <a href="https://portal.sandford.digital" style="color:var(--link);text-decoration:none">portal.sandford.digital</a>
         &nbsp;//&nbsp;
-        <a href="https://insights.sandford.digital" style="color:var(--blue);text-decoration:none">insights.sandford.digital</a>
+        <a href="https://insights.sandford.digital" style="color:var(--link);text-decoration:none">insights.sandford.digital</a>
       </div>
     </div>
   </footer>
